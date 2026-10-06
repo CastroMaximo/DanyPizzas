@@ -1,6 +1,6 @@
 # Dany Pizzas — pedidos por WhatsApp
 
-🌐 **Sitio publicado:** https://castromaximo.github.io/danypizzas/ · QR: [`docs/qr-sitio.png`](docs/qr-sitio.png)
+🌐 **Sitio publicado:** https://castromaximo.github.io/DanyPizzas/ · QR: [`docs/qr-sitio.png`](docs/qr-sitio.png)
 
 Sitio web para que los clientes de **Dany Pizzas** (Chilecito, La Rioja) vean las pizzas, armen su pedido y lo envíen por WhatsApp con un recibo listo. Proyecto de Ingeniería de Software.
 
@@ -27,7 +27,7 @@ Con el backend activo, los precios se cambian en la hoja `Catalogo` de Google Sh
 Guía completa paso a paso: **[`docs/PUBLICAR.md`](docs/PUBLICAR.md)**.
 1. Subir el repo a GitHub (rama `main`).
 2. En GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-3. Cada `git push` corre las pruebas y, si pasan, publica `site/`. La URL queda `https://castromaximo.github.io/danypizzas/`.
+3. Cada `git push` corre las pruebas y, si pasan, publica `site/`. La URL queda `https://castromaximo.github.io/DanyPizzas/`.
 
 ## Backend (registro mensual de pedidos)
 Ver `backend/README.md`.

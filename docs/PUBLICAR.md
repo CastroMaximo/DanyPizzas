@@ -1,7 +1,7 @@
 # Publicar Dany Pizzas (paso a paso)
 
 Dirección pública del sitio (dominio gratuito de GitHub Pages):
-**https://castromaximo.github.io/danypizzas/**
+**https://castromaximo.github.io/DanyPizzas/**
 QR listo para imprimir: `docs/qr-sitio.png`
 
 Hay 3 partes. La 1 y la 2 dejan el sitio en internet (≈10 min). La 3 activa la planilla de pedidos (≈10 min, opcional pero recomendada para la exposición).
@@ -10,12 +10,12 @@ Hay 3 partes. La 1 y la 2 dejan el sitio en internet (≈10 min). La 3 activa la
 
 ## Parte 1 — Subir el código a GitHub
 
-El repositorio `CastroMaximo/danypizzas` ya existe y está vacío. El ZIP **ya trae el commit hecho**, solo falta empujarlo.
+El repositorio `CastroMaximo/DanyPizzas` ya existe y está vacío. El ZIP **ya trae el commit hecho**, solo falta empujarlo.
 
 ```bash
 cd ~/Descargas                       # o donde descargaste el ZIP
-unzip DanyPizzas_v1_2_repo.zip          # crea la carpeta danypizzas/ (con el historial de git)
-cd danypizzas
+unzip DanyPizzas_v1_2_repo.zip          # crea la carpeta DanyPizzas/ (con el historial de git)
+cd DanyPizzas
 git status                           # debe decir: "On branch main ... nothing to commit"
 git push -u origin main
 ```
@@ -30,10 +30,10 @@ Cuando pida credenciales:
 
 ## Parte 2 — Activar GitHub Pages (una sola vez)
 
-1. Entrá a https://github.com/CastroMaximo/danypizzas → **Settings** → **Pages**.
+1. Entrá a https://github.com/CastroMaximo/DanyPizzas → **Settings** → **Pages**.
 2. En *Build and deployment* → *Source*: elegí **GitHub Actions**.
 3. Pestaña **Actions** → workflow *Pruebas y publicación* → si no corrió solo, **Run workflow**.
-4. Cuando termina en verde (≈1 min), abrí https://castromaximo.github.io/danypizzas/
+4. Cuando termina en verde (≈1 min), abrí https://castromaximo.github.io/DanyPizzas/
 
 Requisito: el repositorio tiene que ser **público** (Pages gratis no publica repos privados). *Settings → General → Danger Zone → Change visibility* si hiciera falta. No hay datos sensibles en el código: el alias y el WhatsApp ya son públicos para los clientes.
 
@@ -61,7 +61,7 @@ Verificación: abrí el sitio, hacé un pedido de prueba → tiene que salir un 
 
 ## Checklist de “producto terminado”
 
-- [ ] Sitio abre en https://castromaximo.github.io/danypizzas/ desde PC y celular
+- [ ] Sitio abre en https://castromaximo.github.io/DanyPizzas/ desde PC y celular
 - [ ] Pestaña Actions en verde
 - [ ] Backend desplegado y `backendUrl` cargada
 - [ ] Pedido de prueba: ID secuencial + fila en la planilla + mensaje llega al WhatsApp 3825 62-0508

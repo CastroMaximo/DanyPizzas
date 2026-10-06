@@ -93,7 +93,7 @@ Pruebas: `node --test` (Node 18+; no hace falta instalar paquetes). Modo demo: `
 - [x] CI/CD (`.github/workflows/deploy.yml`: pruebas + publicación en Pages) — **sin ejecutar** (requiere repo en GitHub y Settings → Pages → Source: GitHub Actions)
 - [x] Paquete entregado al usuario (zip `DanyPizzas_v1.zip`)
 - [x] v1.2 (06/10): fotos de Calabresa, De la Casa y Doble Muzza; logo nuevo "DANY PIZZAS" (`assets/img/logo.png`, ícono `icono.png`); protección contra pedidos falsos en backend + 10 pruebas nuevas (44 en total OK); probado con Playwright (móvil y PC, backend simulado). Zip `DanyPizzas_v1_2.zip`
-- [x] Repo `CastroMaximo/danypizzas` creado por el usuario (vacío). Commit inicial preparado (Claude no tiene permiso de push: falta instalar la app de GitHub de Claude en el repo). URL final: https://castromaximo.github.io/danypizzas/ · QR en `docs/qr-sitio.png` · guía `docs/PUBLICAR.md`
+- [x] Repo `CastroMaximo/DanyPizzas` creado por el usuario (vacío). Commit inicial preparado (Claude no tiene permiso de push: falta instalar la app de GitHub de Claude en el repo). URL final: https://castromaximo.github.io/DanyPizzas/ · QR en `docs/qr-sitio.png` · guía `docs/PUBLICAR.md`
 - [ ] Usuario: `git push` (o instalar la app de Claude para que lo haga), activar Pages (Source: GitHub Actions), repo público
 - [ ] Usuario: desplegar Apps Script, pegar URL en `site/js/config.js`, push, pedido real de prueba
 - [ ] **Presentación rehecha según el esquema del profesor** (ver 6)
