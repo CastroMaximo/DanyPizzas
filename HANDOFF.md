@@ -94,12 +94,12 @@ Pruebas: `node --test` (Node 18+; no hace falta instalar paquetes). Modo demo: `
 - [x] Paquete entregado al usuario (zip `DanyPizzas_v1.zip`)
 - [x] v1.2 (06/10): fotos de Calabresa, De la Casa y Doble Muzza; logo nuevo "DANY PIZZAS" (`assets/img/logo.png`, ícono `icono.png`); protección contra pedidos falsos en backend + 10 pruebas nuevas (44 en total OK); probado con Playwright (móvil y PC, backend simulado). Zip `DanyPizzas_v1_2.zip`
 - [x] Repo `CastroMaximo/DanyPizzas` creado por el usuario (vacío). Repo público `CastroMaximo/DanyPizzas`, código subido el 06/10 (app de Claude instalada, Claude puede hacer push). Job de pruebas en verde en Actions. URL final: https://castromaximo.github.io/DanyPizzas/ · QR en `docs/qr-sitio.png` · guía `docs/PUBLICAR.md`
-- [ ] Usuario: activar Pages (Settings → Pages → Source: GitHub Actions) y volver a correr el workflow
+- [x] Pages activado y **sitio publicado el 06/10/2026: https://castromaximo.github.io/DanyPizzas/** (workflow en verde: pruebas + publicar)
 - [ ] Usuario: desplegar Apps Script, pegar URL en `site/js/config.js`, push, pedido real de prueba
 - [ ] **Presentación rehecha según el esquema del profesor** (ver 6)
 - [ ] Diagramas: casos de uso, clases, C4 contexto/contenedores, secuencia del pedido
 - [ ] Evidencias de que es real (capturas de la web publicada, pedido real llegando a WhatsApp, fila en la planilla)
-- [ ] Publicar en GitHub Pages (QR ya generado)
+- [x] Publicar en GitHub Pages + QR (`docs/qr-sitio.png`)
 
 ## 6. Esquema del profesor (ESQUEMA_PRESENTACION.pdf, 49 págs.) — lo que la presentación debe tener
 Su ejemplo es su propio proyecto (gamificación en Dantes Burgers). Secciones: Introducción/Esquema → I Curriculum vitae (omitir/adaptar a datos del estudiante) → II Memoria descriptiva (empresa, ubicación, razón social, organización con nº de trabajadores, misión/visión, infraestructura, **FODA** y **posición estratégica** con valoración de analistas) → III Relación de trabajos (adaptable) → IV Trabajo principal: **diagrama causa-efecto (Ishikawa)** del problema, título del proyecto, **objetivo general + 3 OE**, **alcance** (delimitación, componentes, evaluación, exclusiones), **plan de ejecución (fases, cronograma/Gantt)**, **presupuesto por macrofase y financiamiento**, **evaluación económico-financiera** (VAN, TIR, ROI, B/C, payback; su ejemplo usa Monte Carlo), **diseño conceptual**, **RF y RNF numerados (RF-01…, RNF-01…)**, **desarrollo e integración**, **Resultados por objetivo (con datos reales de uso)**, **Conclusiones por objetivo**, **Recomendaciones por responsable**.
