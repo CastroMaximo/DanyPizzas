@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dany Pizzas · Pedí tu pizza por WhatsApp</title>
+  <meta name="description" content="Elegí tus pizzas, armá tu pedido y envialo por WhatsApp. Envío a domicilio en Chilecito, La Rioja. Martes a domingo de 21:00 a 00:30.">
+  <meta name="theme-color" content="#D82B2B">
+  <meta property="og:title" content="Dany Pizzas · Pedí tu pizza por WhatsApp">
+  <meta property="og:description" content="Armá tu pedido en un minuto y mandalo por WhatsApp. Envío a domicilio en Chilecito.">
+  <meta property="og:image" content="assets/img/logo.png">
+  <link rel="icon" type="image/png" href="assets/img/icono.png">
+  <link rel="apple-touch-icon" href="assets/img/icono.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#menu">Ir al menú</a>
+
+  <header class="top">
+    <div class="wrap top__in">
+      <img class="logo" src="assets/img/logo.png" alt="Logo de Dany Pizzas" width="400" height="427">
+      <div class="brand">
+        <strong>Dany Pizzas</strong>
+        <span>Chilecito · Envío a domicilio</span>
+      </div>
+      <div id="estado" class="estado" role="status" aria-live="polite">Cargando…</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap" aria-labelledby="h-hero">
+      <h1 id="h-hero">Armá tu pedido en un minuto</h1>
+      <p class="hero__sub">Elegí tus pizzas, completá tus datos y mandanos el pedido por WhatsApp. Entrega estimada: <strong id="tiempo">20–30 min</strong>.</p>
+      <ol class="pasos">
+        <li><b>1</b><span>Elegí tus pizzas</span></li>
+        <li><b>2</b><span>Completá tus datos</span></li>
+        <li><b>3</b><span>Enviá por WhatsApp y pagá</span></li>
+      </ol>
+      <p class="tip"><span aria-hidden="true">🍕</span> ¿Dos gustos? Pedí una mitad de cada una y te la armamos mitad y mitad.</p>
+    </section>
+
+    <section class="wrap" id="menu" aria-labelledby="h-menu">
+      <h2 id="h-menu">Nuestras pizzas</h2>
+      <p class="menu__nota">Todas son del mismo tamaño: <strong>entera (8 porciones)</strong> o <strong>mitad (4 porciones)</strong>.</p>
+      <div id="lista" class="grid" aria-live="polite"></div>
+    </section>
+
+    <section class="wrap info" aria-labelledby="h-info">
+      <h2 id="h-info">Cómo funciona</h2>
+      <div class="info__grid">
+        <article class="card-info">
+          <h3>Pedido y pago</h3>
+          <p>Cuando enviás el pedido por WhatsApp, pagás con <strong>Mercado Pago o transferencia</strong> y mandás el comprobante en el mismo chat. En cuanto lo recibimos, empezamos a prepararlo. También podés pagar <strong>en efectivo al recibir</strong>.</p>
+        </article>
+        <article class="card-info">
+          <h3>Envío</h3>
+          <p>Hacemos <strong>solo envío a domicilio</strong> en Chilecito. El costo del envío lo acordás directamente con el repartidor y no está incluido en el total.</p>
+        </article>
+        <article class="card-info">
+          <h3>Horarios</h3>
+          <ul class="horarios" id="horarios"></ul>
+        </article>
+        <article class="card-info">
+          <h3>¿Te equivocaste?</h3>
+          <p>Escribinos por WhatsApp y coordinamos la cancelación. Después volvé acá y hacé un pedido nuevo.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__in">
+      <div>
+        <strong>Dany Pizzas</strong>
+        <p>Chilecito, La Rioja · Envío a domicilio</p>
+        <p><a id="lnkWsp" href="#" target="_blank" rel="noopener">WhatsApp <span id="wspTxt"></span></a> · <a id="lnkIg" href="#" target="_blank" rel="noopener">Instagram</a></p>
+      </div>
+      <p class="foot__priv"><strong>Privacidad:</strong> usamos tu nombre, teléfono y dirección solo para entregarte el pedido. Se registran en una planilla privada del negocio. Si querés que los borremos, pedilo por WhatsApp.</p>
+    </div>
+  </footer>
+
+  <!-- Barra flotante del carrito -->
+  <div class="cartbar" id="cartbar" hidden>
+    <button type="button" id="btnCarrito" class="cartbar__btn">
+      <span class="cartbar__ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6"/><circle cx="10" cy="20.5" r="1.2"/><circle cx="17" cy="20.5" r="1.2"/></svg>
+        <i id="cartCount">0</i>
+      </span>
+      <span class="cartbar__txt">Ver mi pedido</span>
+      <span class="cartbar__total" id="cartTotal">$0</span>
+    </button>
+  </div>
+
+  <!-- Hoja del pedido -->
+  <div class="sheet" id="sheet" hidden>
+    <div class="sheet__bg" data-cerrar></div>
+    <div class="sheet__panel" role="dialog" aria-modal="true" aria-labelledby="sheetTitulo" tabindex="-1">
+      <div class="sheet__head">
+        <h2 id="sheetTitulo">Tu pedido</h2>
+        <button type="button" class="icon-btn" data-cerrar aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+
+      <!-- Vista 1: armar pedido -->
+      <div id="vistaPedido" class="sheet__body">
+        <p id="vacio" class="vacio" hidden>Todavía no agregaste pizzas.</p>
+        <ul id="lineas" class="lineas"></ul>
+        <p id="avisoMitad" class="aviso" hidden></p>
+        <dl class="totales">
+          <div><dt>Porciones</dt><dd id="totPorciones">0</dd></div>
+          <div><dt>Envío</dt><dd>Se acuerda con el repartidor</dd></div>
+          <div class="totales__total"><dt>Total pizzas</dt><dd id="totTotal">$0</dd></div>
+        </dl>
+
+        <form id="form" novalidate autocomplete="on">
+          <h3 class="form__t">Tus datos</h3>
+          <div class="campo">
+            <label for="nombre">Nombre y apellido</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+            <span class="err" data-err="nombre"></span>
+          </div>
+          <div class="campo">
+            <label for="telefono">Teléfono / WhatsApp</label>
+            <input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ej: 3825 123456" required>
+            <span class="err" data-err="telefono"></span>
+          </div>
+          <div class="campo">
+            <label for="direccion">Dirección de entrega</label>
+            <input id="direccion" name="direccion" type="text" autocomplete="street-address" placeholder="Calle y número" required>
+            <span class="err" data-err="direccion"></span>
+          </div>
+          <div class="campo">
+            <label for="referencia">Referencia <small>(opcional)</small></label>
+            <input id="referencia" name="referencia" type="text" placeholder="Ej: portón negro, esquina almacén">
+          </div>
+          <div class="campo">
+            <label for="entrega">¿Para cuándo lo querés?</label>
+            <select id="entrega" name="entrega"></select>
+            <small class="ayuda" id="ayudaEntrega"></small>
+          </div>
+
+          <fieldset class="campo pagos">
+            <legend>¿Cómo vas a pagar?</legend>
+            <div id="medios" class="medios"></div>
+            <span class="err" data-err="pago"></span>
+          </fieldset>
+
+          <div class="campo">
+            <label for="obs">Observaciones <small>(opcional)</small></label>
+            <textarea id="obs" name="obs" rows="2" maxlength="300" placeholder="Ej: sin olivas, tocar timbre"></textarea>
+          </div>
+
+          <!-- Campo trampa para bots: las personas no lo ven -->
+          <div class="trampa" aria-hidden="true">
+            <label for="sitio">No completar</label>
+            <input id="sitio" name="sitio" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <p class="err err--gral" data-err="carrito" role="alert"></p>
+          <button type="submit" id="btnEnviar" class="btn btn--primary btn--grande">Confirmar pedido</button>
+          <p class="nota">Al confirmar te mostramos tu número de pedido y se abre WhatsApp con el detalle listo para enviar.</p>
+        </form>
+      </div>
+
+      <!-- Vista 2: pedido confirmado -->
+      <div id="vistaOk" class="sheet__body" hidden>
+        <div class="ok">
+          <p class="ok__etq">Tu número de pedido</p>
+          <p class="ok__id" id="okId">DP-000000-000</p>
+          <p class="ok__aviso" id="okRegistro" hidden></p>
+        </div>
+
+        <ol class="ok__pasos">
+          <li>
+            <h3>Enviá el pedido por WhatsApp</h3>
+            <p>Se abre el chat con el detalle ya escrito. Tocá <strong>Enviar</strong>.</p>
+            <a id="btnWsp" class="btn btn--wsp btn--grande" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.4A9.93 9.93 0 1 0 12.04 2zm0 1.8a8.13 8.13 0 1 1-4.2 15.1l-.3-.18-3.1.83.83-3.03-.2-.31A8.13 8.13 0 0 1 12.04 3.8zm-3.1 4.1c-.16 0-.42.06-.64.3-.22.25-.84.82-.84 2s.86 2.3.98 2.46c.12.16 1.67 2.66 4.12 3.62 2.04.8 2.45.64 2.9.6.45-.04 1.43-.58 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.37-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.1-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46z"/></svg>
+              Enviar pedido por WhatsApp
+            </a>
+          </li>
+          <li id="okPago">
+            <h3 id="okPagoTit">Pagá</h3>
+            <div id="okPagoCuerpo"></div>
+          </li>
+        </ol>
+
+        <details class="recibo">
+          <summary>Ver el mensaje que se envía</summary>
+          <pre id="okRecibo"></pre>
+          <button type="button" class="btn btn--ghost" id="btnCopiar">Copiar mensaje</button>
+        </details>
+
+        <p class="nota">¿Te equivocaste o querés cancelar? Escribinos por WhatsApp y coordinamos. Después podés hacer un pedido nuevo.</p>
+        <button type="button" class="btn btn--ghost btn--grande" id="btnNuevo">Hacer otro pedido</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <noscript><p class="noscript">Para armar tu pedido necesitás activar JavaScript. También podés escribirnos por WhatsApp.</p></noscript>
+
+  <script src="js/config.js"></script>
+  <script src="data/catalogo.js"></script>
+  <script src="js/lib.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
