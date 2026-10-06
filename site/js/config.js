@@ -54,7 +54,7 @@
     prefijoId: 'DP',
 
     // URL del backend (Google Apps Script). Vacío = el sitio funciona igual, sin registrar en la planilla.
-    backendUrl: '',
+    backendUrl: 'https://script.google.com/macros/s/AKfycbxwbL6ziIkBb7JzdO3_B4hbmIFMnPbuzN8Iqy1su-ktDDVSAQTrAahvegejPVIjLoY3CQ/exec',
     backendTimeoutMs: 6000
   };
 
