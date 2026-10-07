@@ -1,7 +1,7 @@
 # HANDOFF — Dany Pizzas Web (proyecto de Ingeniería de Software)
 
 > Archivo de estado. Si la sesión se corta, leer ESTE archivo primero y continuar desde "Estado actual".
-> Última actualización: 2026-10-06 (v1.2: fotos, logo nuevo, protección del backend). **Fecha de entrega y exposición: 13/10/2026.**
+> Última actualización: 2026-10-07 07:55 (producto publicado y planilla activa; análisis RF/RNF, FODA e Ishikawa hechos; falta la presentación según el esquema). **Fecha de entrega y exposición: 13/10/2026.**
 
 ## 1. Qué es
 Sitio web estático (mobile-first) para el emprendimiento **Dany Pizzas / Dany Pizzería** (Chilecito, La Rioja, Argentina; 3 personas; solo envío a domicilio). El cliente arma el pedido, el sitio genera un ID y un recibo, y abre WhatsApp con el recibo prellenado. Después el cliente paga y manda el comprobante; recién ahí se prepara.
@@ -52,7 +52,7 @@ Usuario: Máximo Daniel Castro (GitHub `CastroMaximo`, repo `CastroMaximo/DanyPi
 Mitades (regla **confirmada 06/10**: mitad del precio redondeada al múltiplo de $500 más cercano; si cae justo en el medio, hacia arriba): Muzza 4.500 · resto de 9.500 → 5.000 · De la Casa 5.500.
 
 ## 3. Supuestos que YO tomé (el usuario debe confirmarlos)
-1. **Redondeo de mitades:** siempre hacia arriba al múltiplo de $500 (el único ejemplo dado fue 9.500→5.000; 8.500 y 10.500 caen en empate).
+1. ~~Redondeo de mitades~~ → **confirmado 07/10:** múltiplo de $500 más cercano, empate hacia arriba (`Math.round`, en `lib.js` y `Code.gs`).
 2. **Fotos (resuelto 06/10):** las 7 pizzas tienen foto. Muzza y Doble Muzza comparten `muzza.jpg` (decisión del usuario). Calabresa = foto nueva de salame. De la Casa = foto de carne picada + huevo (decisión del usuario) → ingredientes corregidos a muzza, carne picada, huevo y olivas verdes (confirmado 06/10).
 3. **Fuera de horario:** el sitio avisa que está cerrado pero igual deja armar el pedido (para que la demo funcione de día). Configurable: `permitirFueraDeHorario` en `site/js/config.js`.
 4. **Datos del cliente (Q27 sin respuesta):** nombre, teléfono, dirección (obligatoria: solo envío), referencia (opcional), hora de entrega, medio de pago, observaciones.
@@ -77,8 +77,10 @@ backend/Code.gs  ← Google Apps Script (registro en Google Sheets)
 backend/README.md
 tests/           ← pruebas unitarias (node --test) y e2e (Playwright, solo si se quiere)
 .github/workflows/deploy.yml  ← pruebas + publicación en GitHub Pages
-diagramas/       ← UML/C4 (Mermaid + PNG/SVG)
-docs/            ← recursos y documentación
+diagramas/       ← UML/C4: casos de uso, clases, C4 contexto/contenedores, secuencia (.drawio + .mmd + .png + .svg)
+docs/analisis/   ← requisitos.md (RF/RNF), foda.md (EFI/EFE/IE), ishikawa (.md/.png/.drawio), PENDIENTES_DEL_USUARIO.md
+docs/entregas/   ← Dossier de transición (Word + PDF)
+docs/            ← PUBLICAR.md, qr-sitio.png, capturas/
 HANDOFF.md
 ```
 Probar local sin Node: `cd site && python3 -m http.server 8000` y abrir http://localhost:8000
@@ -90,7 +92,7 @@ Pruebas: `node --test` (Node 18+; no hace falta instalar paquetes). Modo demo: `
 - [x] Logo, fotos y colores preparados (rojo #E83030, verde #309880, crema #F7EBDB)
 - [x] Sitio construido y probado (Playwright móvil 390px + PC 1366px; flujo completo con y sin backend; 34 pruebas `node --test` OK)
 - [x] Backend Apps Script (`backend/Code.gs`) + guía (`backend/README.md`) — probado con Google simulado; **desplegado y activo desde el 06/10** (cuenta Google del negocio; URL cargada en `config.js`; verificado por el usuario)
-- [x] CI/CD (`.github/workflows/deploy.yml`: pruebas + publicación en Pages) — **sin ejecutar** (requiere repo en GitHub y Settings → Pages → Source: GitHub Actions)
+- [x] CI/CD (`.github/workflows/deploy.yml`: pruebas + publicación en Pages) — **funcionando desde el 06/10** (cada push a `main` corre las 44 pruebas y publica)
 - [x] Paquete entregado al usuario (zip `DanyPizzas_v1.zip`)
 - [x] v1.2 (06/10): fotos de Calabresa, De la Casa y Doble Muzza; logo nuevo "DANY PIZZAS" (`assets/img/logo.png`, ícono `icono.png`); protección contra pedidos falsos en backend + 10 pruebas nuevas (44 en total OK); probado con Playwright (móvil y PC, backend simulado). Zip `DanyPizzas_v1_2.zip`
 - [x] Repo `CastroMaximo/DanyPizzas` creado por el usuario (vacío). Repo público `CastroMaximo/DanyPizzas`, código subido el 06/10 (app de Claude instalada, Claude puede hacer push). Job de pruebas en verde en Actions. URL final: https://castromaximo.github.io/DanyPizzas/ · QR en `docs/qr-sitio.png` · guía `docs/PUBLICAR.md`
@@ -108,7 +110,21 @@ Pruebas: `node --test` (Node 18+; no hace falta instalar paquetes). Modo demo: `
 Su ejemplo es su propio proyecto (gamificación en Dantes Burgers). Secciones: Introducción/Esquema → I Curriculum vitae (omitir/adaptar a datos del estudiante) → II Memoria descriptiva (empresa, ubicación, razón social, organización con nº de trabajadores, misión/visión, infraestructura, **FODA** y **posición estratégica** con valoración de analistas) → III Relación de trabajos (adaptable) → IV Trabajo principal: **diagrama causa-efecto (Ishikawa)** del problema, título del proyecto, **objetivo general + 3 OE**, **alcance** (delimitación, componentes, evaluación, exclusiones), **plan de ejecución (fases, cronograma/Gantt)**, **presupuesto por macrofase y financiamiento**, **evaluación económico-financiera** (VAN, TIR, ROI, B/C, payback; su ejemplo usa Monte Carlo), **diseño conceptual**, **RF y RNF numerados (RF-01…, RNF-01…)**, **desarrollo e integración**, **Resultados por objetivo (con datos reales de uso)**, **Conclusiones por objetivo**, **Recomendaciones por responsable**.
 Corrección pendiente de la presentación v1: (a) le faltan evaluación económico-financiera, RF/RNF, diagramas, resultados reales y conclusiones; (b) el "Docente" debe decir "Dr. Morales Gonzales Alexander"; (c) para la evaluación económica hacen falta datos reales del negocio (ver sección 7).
 
+## 6b. Pendientes de acción del USUARIO (no los puede hacer Claude)
+1. **Actualizar el backend en Apps Script**: el redondeo de mitades cambió en `backend/Code.gs` el 07/10. Pegar el `Code.gs` actual → Implementar → Administrar implementaciones → ✏ → Nueva versión (la URL no cambia). No urgente: con los precios actuales da el mismo resultado.
+2. **Pedido real de prueba + 3 capturas** (confirmación en el sitio, mensaje en WhatsApp, fila en la planilla; marcar la fila como Descartado).
+3. **Responder `docs/analisis/PENDIENTES_DEL_USUARIO.md`** (también en el proyecto como `claude/Pendientes_presentacion.md`): 25 puntos, 8 imprescindibles.
+
+## 6c. Otros entregables ya hechos (actividad del dossier, aparte de la presentación principal)
+- Dossier de transición: `docs/entregas/Dossier_Transicion_DanyPizzas.docx/.pdf` (14 págs.).
+- Diapositivas de la exposición del dossier (15 slides, notas del orador): artifact https://claude.ai/artifact/DxrxdBi3E8F5nBXch6VJw6 (privado). Speech de 4–5 min entregado en el chat (07/10).
+
+## 6d. Mantenimiento técnico (después del 13/10, no tocar antes de exponer)
+- GitHub Actions avisa que `checkout@v4`, `setup-node@v4`, `configure-pages@v5`, `upload-pages-artifact@v3`, `deploy-pages@v4` usan Node 20 (deprecado; hoy se fuerzan a Node 24 y funcionan). Subir versiones y verificar que la publicación siga en verde.
+- `ubuntu-latest` pasa a Ubuntu 26 desde el 19/10/2026 (sin impacto esperado).
+
 ## 7. Preguntas abiertas para el usuario
+> **Lista completa y actualizada:** `docs/analisis/PENDIENTES_DEL_USUARIO.md`. Lo de abajo es el historial.
 1. ~~Redondeo de mitades~~ → confirmado: múltiplo de $500 más cercano (empate hacia arriba).
 2. ~~Ingredientes De la Casa~~ → resuelto: mozzarella, carne picada, huevo y olivas verdes.
 3. ~~Nombre~~ → resuelto: "Dany Pizzas". (El Instagram sigue siendo @dany.pizzeria.)
@@ -116,3 +132,9 @@ Corrección pendiente de la presentación v1: (a) le faltan evaluación económi
 5. ¿La cátedra pide Monte Carlo/VAN/TIR como el ejemplo o alcanza con un análisis simple costo-beneficio?
 6. ¿Cómo se presenta el "Curriculum vitae" (el ejemplo es del profesor)? ¿Hay que incluir el del estudiante?
 7. ¿Hay clientes reales dispuestos a hacer un pedido de prueba antes del 13/10 (evidencia)?
+
+## 8. Cómo retomar en una sesión nueva
+1. Leer este HANDOFF y `claude/Pendientes_presentacion.md` del proyecto.
+2. Clonar `CastroMaximo/DanyPizzas` (Claude tiene permiso de push) y correr `node --test` (deben pasar 44).
+3. Próximo trabajo: **presentación principal según el esquema del profesor (sección 6)**, usando `docs/analisis/` (RF/RNF, FODA, Ishikawa), `diagramas/` y las respuestas del usuario para la evaluación económica, el CV, la organización y los resultados reales.
+
