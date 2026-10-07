@@ -13,7 +13,6 @@
 | 5 | Aprobar la misión, visión y valores propuestos | chico |
 | 10 | Confirmar que “fin de semana” = sábado y domingo | chico |
 | 12 | Confirmar que el 40 % es ganancia sobre el precio de venta | chico |
-| 22 | Duración de la exposición (minutos) | chico |
 | 24 | Uso real hasta el 13/10 y opinión de 2 o 3 clientes | mejora la nota |
 
 ---
@@ -50,7 +49,7 @@
 19. ⭐ ⏳ **Curriculum vitae:** se incluye; lo estás preparando.
 20. ✅ **Portada:** Universidad Nacional de Moquegua · Facultad de Ingenierías · Escuela Profesional de Ingeniería de Sistemas e Informática · Carrera: Ingeniería de Sistemas · Asignatura: Ingeniería de Software · Comisión A.
 21. ✅ **Relación de trabajos:** se omite por ahora.
-22. 🟡 **Exposición:** se proyecta desde tu computadora. → **Falta: ¿cuántos minutos dura?** Formato: PowerPoint (.pptx), que también se exporta a PDF de respaldo.
+22. ✅ **Exposición:** se proyecta desde tu computadora; dura de 10 a 15 minutos (rúbrica). Presentación de 20 diapositivas (≈ 13 min) + anexos aparte.
 
 ## E. Evidencia real (Resultados por objetivo)
 
