@@ -37,7 +37,7 @@ Ver `backend/README.md`.
 site/        sitio (HTML/CSS/JS sin dependencias)
 backend/     Google Apps Script
 tests/       pruebas unitarias
-diagramas/   UML y C4
+diagramas/   UML y C4 (casos de uso, clases, contexto, contenedores, secuencia)
 docs/        recursos y documentación
 HANDOFF.md   estado del proyecto y decisiones
 ```

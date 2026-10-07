@@ -1,0 +1,104 @@
+%% Diagrama de clases (modelo de dominio + módulos) — Dany Pizzas
+classDiagram
+  direction LR
+  class Configuracion {
+    +negocio: nombre, whatsapp, tiempoEstimado
+    +pago: alias, titular, minutosComprobante
+    +horarios: dia → [apertura, cierre]
+    +redondeoMitad = 500
+    +backendUrl
+  }
+  class Pizza {
+    +id: string
+    +nombre: string
+    +ingredientes: string
+    +precio: int  «entera»
+    +disponible: bool
+    +imagen: string
+  }
+  class ItemPedido {
+    +id: string  «de Pizza»
+    +tam: E | M
+    +cant: int
+  }
+  class Pedido {
+    +id: DP-AAMMDD-NNN
+    +fecha: Date
+    +items: ItemPedido[]
+    +total: int
+    +porciones: int
+    +entrega: asap | hora
+    +estado: EstadoPedido
+    +fueraDeHorario: bool
+  }
+  class EstadoPedido {
+    <<enumeration>>
+    Nuevo
+    Pagado
+    En preparación
+    Entregado
+    Cancelado
+    Descartado
+  }
+  class Cliente {
+    +nombre
+    +telefono
+    +direccion
+    +referencia
+  }
+  class MedioPago {
+    +id: mp | transferencia | efectivo
+    +label
+    +requiereComprobante: bool
+  }
+  class DanyLib {
+    <<módulo lib.js>>
+    +precioMitad(precio, paso) int
+    +calcularCarrito(items, catalogo, cfg) Resumen
+    +estadoLocal(fecha, cfg) Estado
+    +validarPedido(datos, cfg) Resultado
+    +generarId(fecha, cfg) string
+    +armarRecibo(pedido, cfg) string
+    +urlWhatsApp(texto, cfg) string
+  }
+  class InterfazApp {
+    <<módulo app.js>>
+    -carrito: ItemPedido[]
+    +pintarCatalogo()
+    +agregar(id, tam)
+    +onSubmit(evento)
+    +registrarPedido(payload) Promise
+    +mostrarConfirmacion(datos)
+  }
+  class BackendAppsScript {
+    <<Code.gs>>
+    +doGet(action=catalogo) JSON
+    +doPost(pedido) JSON
+    -filtrarBots(datos)
+    -validar(datos)
+    -controlarLimites(pedido)
+    -calcular(items, catalogo)
+    -siguienteId(hoja, fecha)
+  }
+  class HojaCatalogo {
+    <<Google Sheets>>
+    id, nombre, ingredientes, precio_entera, disponible
+  }
+  class HojaPedidosMes {
+    <<Google Sheets>>
+    una fila por Pedido (15 columnas)
+  }
+
+  Pedido "1" *-- "1..30" ItemPedido : contiene
+  ItemPedido "*" --> "1" Pizza : refiere a
+  Pedido "*" --> "1" Cliente : para
+  Pedido "*" --> "1" MedioPago : se paga con
+  Pedido --> EstadoPedido : estado
+  InterfazApp ..> DanyLib : usa
+  InterfazApp ..> Configuracion : lee
+  InterfazApp ..> BackendAppsScript : HTTPS (GET / POST)
+  DanyLib ..> Configuracion : lee
+  BackendAppsScript --> HojaCatalogo : lee precios
+  BackendAppsScript --> HojaPedidosMes : agrega filas
+  HojaCatalogo ..> Pizza : persiste
+  HojaPedidosMes ..> Pedido : persiste

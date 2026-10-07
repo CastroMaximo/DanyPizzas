@@ -1,0 +1,43 @@
+%% Diagrama de secuencia — Hacer un pedido — Dany Pizzas
+%%{init: {"themeVariables": {"actorBkg": "#FFF8EE", "actorBorder": "#C42A24", "actorTextColor": "#2A1A15", "actorLineColor": "#B9A28C", "labelBoxBkgColor": "#F6CF8E", "labelBoxBorderColor": "#C42A24", "labelTextColor": "#2A1A15", "loopTextColor": "#2A1A15", "noteTextColor": "#2A1A15"}}}%%
+sequenceDiagram
+  autonumber
+  actor C as Cliente
+  participant W as Sitio web<br/>(app.js + lib.js)
+  participant B as Backend<br/>(Apps Script)
+  participant P as Planilla<br/>(Google Sheets)
+  participant Z as WhatsApp
+  actor N as Negocio
+
+  C->>W: Abre el sitio (enlace o QR)
+  W->>B: GET ?action=catalogo
+  B->>P: leerCatalogo()
+  P-->>B: precios y disponibilidad
+  B-->>W: catálogo vigente
+  C->>W: Agrega pizzas (entera / mitad)
+  W->>W: calcularCarrito() → total y porciones
+  C->>W: Completa datos y medio de pago → Confirmar
+  W->>W: validarPedido()
+  alt datos incompletos
+    W-->>C: Marca los campos con error
+  else datos válidos
+    W->>B: POST pedido (items, datos, campo trampa, tiempo, nonce)
+    B->>B: filtrarBots() · validar() · controlarLimites()
+    B->>P: leerCatalogo() y calcular() (recalcula el total)
+    B->>P: siguienteId() y agrega la fila (Estado = Nuevo)
+    alt registro correcto
+      B-->>W: { id: DP-AAMMDD-NNN, total, líneas }
+    else backend rechaza o no responde
+      W->>W: generarId() local (el pedido sigue igual)
+    end
+    W->>W: armarRecibo()
+    W-->>C: N° de pedido + datos de pago
+    C->>Z: Abre wa.me con el recibo y lo envía
+    Z->>N: Recibo completo del pedido
+    opt Mercado Pago o transferencia
+      C->>Z: Comprobante (dentro de 5 min)
+      Z->>N: Comprobante
+    end
+    N->>N: Valida el pago y prepara
+    N->>P: Estado: Pagado → En preparación → Entregado
+  end

@@ -1,0 +1,42 @@
+%% Diagrama de casos de uso — Dany Pizzas
+flowchart LR
+  cliente["<b>Cliente</b><br/>(actor)"]:::actor
+
+  subgraph SIS["Sistema web de pedidos — Dany Pizzas"]
+    CU01(["CU-01 Ver carta, precios y horario"])
+    CU02(["CU-02 Armar pedido<br/>(entera / mitad / mitad y mitad)"])
+    CU03(["CU-03 Completar datos de entrega y pago"])
+    CU04(["CU-04 Confirmar pedido"])
+    CU05(["CU-05 Enviar pedido por WhatsApp"])
+    CU06(["CU-06 Enviar comprobante de pago"])
+    CU04a(["Calcular total"]):::inc
+    CU04b(["Asignar N° de pedido"]):::inc
+    CU04c(["Registrar en planilla"]):::inc
+    CU07(["CU-07 Recibir y validar pedido"])
+    CU08(["CU-08 Actualizar estado del pedido"])
+    CU09(["CU-09 Cambiar precios y disponibilidad"])
+    CU10(["CU-10 Consultar pedidos del mes"])
+    CU11(["CU-11 Pausar registro web"])
+  end
+
+  atencion["<b>Atención</b><br/>(encargado del celular)"]:::actor
+  duenio["<b>Dueño</b><br/>(administrador)"]:::actor
+  wsp["<b>WhatsApp</b><br/>(sistema externo)"]:::externo
+
+  cliente --- CU01 & CU02 & CU03 & CU04 & CU05 & CU06
+  CU04 -. "«include»" .-> CU04a & CU04b & CU04c
+  CU05 --- wsp
+  CU06 --- wsp
+  CU07 --- atencion
+  CU08 --- atencion
+  CU07 --- duenio
+  CU08 --- duenio
+  CU09 --- duenio
+  CU10 --- duenio
+  CU11 --- duenio
+  wsp --- CU07
+
+  classDef actor fill:#C42A24,stroke:#8E1C18,color:#FFF8EE
+  classDef externo fill:#1F6E5D,stroke:#154D41,color:#FFF8EE
+  classDef inc fill:#FFF8EE,stroke:#B9A28C,stroke-dasharray:4 3,color:#5A463C
+  style SIS fill:#FBF5EC,stroke:#C42A24,stroke-width:2px,color:#2A1A15

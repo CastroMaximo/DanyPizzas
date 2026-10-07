@@ -1,0 +1,30 @@
+%% C4 — Nivel 2: Diagrama de contenedores — Dany Pizzas
+flowchart TB
+  cliente["<b>Cliente</b><br/>[Persona]"]:::persona
+  atencion["<b>Atención / Dueño</b><br/>[Persona]"]:::persona
+
+  subgraph SIS["Sistema web de pedidos — Dany Pizzas"]
+    direction TB
+    web["<b>Sitio web</b><br/>[HTML + CSS + JavaScript, GitHub Pages]<br/>Carta, carrito, validación, recibo<br/>y apertura de WhatsApp"]:::contenedor
+    local[("<b>Almacenamiento local</b><br/>[localStorage del navegador]<br/>Carrito y datos del cliente")]:::datos
+    api["<b>Backend</b><br/>[Google Apps Script, aplicación web]<br/>Recalcula total, asigna N° secuencial,<br/>filtra pedidos falsos, sirve el catálogo"]:::contenedor
+    hoja[("<b>Planilla</b><br/>[Google Sheets]<br/>Hoja Catalogo + hoja Pedidos AAAA-MM")]:::datos
+  end
+
+  wsp["<b>WhatsApp</b><br/>[Sistema externo]"]:::externo
+  gh["<b>GitHub Actions</b><br/>[CI/CD]<br/>44 pruebas y publicación"]:::externo
+
+  cliente -- "Usa<br/>[HTTPS]" --> web
+  web -- "Guarda / lee" --> local
+  web -- "GET catálogo · POST pedido<br/>[HTTPS, JSON]" --> api
+  api -- "Lee precios · agrega filas" --> hoja
+  web -- "Abre chat con el recibo<br/>[wa.me]" --> wsp
+  wsp -- "Pedido y comprobante" --> atencion
+  atencion -- "Edita precios y estados<br/>[Google Sheets]" --> hoja
+  gh -- "Prueba y publica<br/>en cada cambio" --> web
+
+  classDef persona fill:#C42A24,stroke:#8E1C18,color:#FFF8EE
+  classDef contenedor fill:#1F6E5D,stroke:#154D41,color:#FFF8EE
+  classDef datos fill:#2E8B74,stroke:#154D41,color:#FFF8EE
+  classDef externo fill:#8C7B70,stroke:#6B5A50,color:#FFF8EE
+  style SIS fill:#FBF5EC,stroke:#1F6E5D,stroke-width:2px,stroke-dasharray:6 4,color:#2A1A15

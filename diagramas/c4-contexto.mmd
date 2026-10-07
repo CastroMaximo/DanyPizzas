@@ -1,0 +1,22 @@
+%% C4 — Nivel 1: Diagrama de contexto — Dany Pizzas
+flowchart TB
+  cliente["<b>Cliente</b><br/>[Persona]<br/>Vecino de Chilecito que pide<br/>pizza con envío a domicilio"]:::persona
+  equipo["<b>Equipo de Dany Pizzas</b><br/>[Persona]<br/>Atención, cocina y dueño<br/>(3 personas)"]:::persona
+
+  sistema["<b>Sistema web de pedidos</b><br/>[Sistema de software]<br/>Muestra la carta, arma el pedido,<br/>calcula el total, asigna N° y lo registra"]:::sistema
+
+  wsp["<b>WhatsApp</b><br/>[Sistema externo]<br/>Canal donde llega el pedido<br/>y el comprobante"]:::externo
+  pago["<b>Mercado Pago / banco</b><br/>[Sistema externo]<br/>Cobro por transferencia<br/>al alias del negocio"]:::externo
+  ig["<b>Instagram</b><br/>[Sistema externo]<br/>Difusión del enlace y del QR"]:::externo
+
+  cliente -- "Ve la carta y confirma su pedido<br/>[HTTPS]" --> sistema
+  sistema -- "Abre el chat con el recibo listo<br/>[enlace wa.me]" --> wsp
+  cliente -- "Envía el recibo y el comprobante" --> wsp
+  wsp -- "Recibe pedidos y comprobantes" --> equipo
+  cliente -- "Paga" --> pago
+  equipo -- "Cambia precios, consulta y<br/>marca estados de pedidos" --> sistema
+  ig -- "Lleva clientes al sitio" --> cliente
+
+  classDef persona fill:#C42A24,stroke:#8E1C18,color:#FFF8EE
+  classDef sistema fill:#1F6E5D,stroke:#154D41,color:#FFF8EE
+  classDef externo fill:#8C7B70,stroke:#6B5A50,color:#FFF8EE
