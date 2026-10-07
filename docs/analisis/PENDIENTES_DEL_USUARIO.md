@@ -51,4 +51,4 @@
 
 23. ⭐ ⏳ **Pedido real de prueba** desde https://castromaximo.github.io/DanyPizzas/ con 3 capturas: confirmación en el sitio, mensaje en WhatsApp y fila en la planilla (después marcá la fila como “Descartado”).
 24. ⏳ **Uso real:** cantidad de pedidos por la web hasta el 13/10 (se ve en la planilla) y opinión de 2 o 3 clientes.
-25. ✅ **Fechas del Gantt:** todo el plan entra en la semana del lunes 05/10 al domingo 11/10 (publicación 06/10, validación con el negocio 07/10, exposición 13/10). Detalle y prompt para un Gantt editable en `docs/presentacion/gantt-y-prompt.md`.
+25. ✅ **Fechas del Gantt:** dos semanas, del lunes 28/09 al domingo 11/10. Semana 1: Beat Chart, cuestionario, diseño y prototipo de la carta. Semana 2: desarrollo, publicación (06/10), validación (07/10), pedido real y ensayo. Las 48 h repartidas por macrofase. Detalle y prompt para un Gantt editable en `docs/presentacion/gantt-y-prompt.md`. 🟡 **Confirmá** que el prototipo de la carta fue el 03–04/10 (antes de crear el repositorio).

@@ -362,33 +362,54 @@ async function build() {
   card(s, 0.6, 4.3, 3.9, 2.45, CREAM);
   txt(s, "No incluye (v2)", { x: 0.85, y: 4.42, w: 3.4, h: 0.4, fontFace: "Cambria", fontSize: 18, bold: true, color: RED_D });
   txt(s, bul(["Pago en línea", "App móvil nativa", "Seguimiento en tiempo real", "Más de un local"]), { x: 0.85, y: 4.85, w: 3.5, h: 1.8, fontSize: 14, paraSpaceAfter: 3 });
-  // Gantt por días: lunes 05/10 a domingo 11/10 (todas las tareas terminan esta semana) + exposición martes 13/10.
-  const gl = 7.55, gw = 0.64, gt = 1.6, rh = 0.47, gx0 = 4.75;
-  const dias = ["Lun\n05", "Mar\n06", "Mié\n07", "Jue\n08", "Vie\n09", "Sáb\n10", "Dom\n11", "Mar\n13"];
-  dias.forEach((c, i) => txt(s, c, { x: gl + i * gw, y: gt - 0.05, w: gw, h: 0.5, fontSize: 11, bold: true, color: i === 7 ? RED_D : GRAY, align: "center", valign: "middle", paraSpaceAfter: 0 }));
-  // [tarea, día de inicio (0 = lun 05), duración en días, color]
+  // Gantt de dos semanas: lun 28/09 a dom 11/10 (todas las tareas terminan el 11/10) + exposición mar 13/10.
+  // Columna "h": reparto de las 48 h del presupuesto (diap. 11): análisis 8, diseño 8, desarrollo 18, pruebas 8, despliegue 6.
+  const gx0 = 4.75, lw = 2.3, hw = 0.42, gl = gx0 + lw + hw, gw = 0.34, gt = 1.55, rh = 0.4;
+  const nd = 15; // 14 días + columna del 13/10
+  const num = ["28", "29", "30", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "13"];
+  const ini = ["L", "M", "M", "J", "V", "S", "D", "L", "M", "M", "J", "V", "S", "D", "M"];
+  // Encabezado de semanas
+  [["Semana 1 · 28/09–04/10", 0, 7, GRAY], ["Semana 2 · 05/10–11/10", 7, 7, GRAY], ["Expo", 14, 1, RED_D]].forEach(([t, c0, n, col]) =>
+    txt(s, t, { x: gl + c0 * gw, y: gt, w: n * gw, h: 0.25, fontSize: 10, bold: true, color: col, align: "center", valign: "middle" }));
+  num.forEach((d, i) => {
+    const col = i === 14 ? RED_D : GRAY;
+    txt(s, ini[i], { x: gl + i * gw, y: gt + 0.25, w: gw, h: 0.2, fontSize: 8, color: col, align: "center", valign: "middle" });
+    txt(s, d, { x: gl + i * gw, y: gt + 0.43, w: gw, h: 0.22, fontSize: 10, bold: true, color: col, align: "center", valign: "middle" });
+  });
+  txt(s, "h", { x: gx0 + lw, y: gt + 0.43, w: hw, h: 0.22, fontSize: 10, bold: true, color: GRAY, align: "center", valign: "middle" });
+  // [tarea, horas, día de inicio (0 = lun 28/09), duración en días, color]
   const fases = [
-    ["Análisis y requisitos", 0, 2, GRAY], ["Diseño y arquitectura", 0, 1, GRAY],
-    ["Inc. 1–2: carta y carrito", 0, 2, RED], ["Inc. 3–4: recibo y backend", 1, 1, RED],
-    ["Pruebas y publicación", 1, 1, GREEN], ["Validación con el negocio", 2, 1, GREEN_D],
-    ["Evaluación y documentos", 2, 2, GREEN_D], ["Pedido real y medición", 3, 4, GREEN],
-    ["Presentación y ensayo", 2, 5, INK],
+    ["Beat Chart y plan de trabajo", "3", 0, 2, GRAY],
+    ["Cuestionario y relevamiento", "5", 2, 3, GRAY],
+    ["Diseño: interfaz y arquitectura", "8", 3, 3, GRAY],
+    ["Inc. 1: carta (prototipo)", "5", 5, 2, RED],
+    ["Inc. 2: carrito y mitades", "5", 7, 1, RED],
+    ["Inc. 3–4: recibo y backend", "8", 8, 2, RED],
+    ["Pruebas (44 automáticas)", "8", 7, 4, GREEN],
+    ["Despliegue y CI", "6", 8, 2, GREEN],
+    ["Validación y evaluación", "—", 9, 2, GREEN_D],
+    ["Pedido real y medición", "—", 10, 4, GREEN_D],
+    ["Presentación y ensayo", "—", 9, 5, INK],
   ];
-  const nf = fases.length, top0 = gt + 0.5;
+  const nf = fases.length, top0 = gt + 0.7;
+  // Separador entre semanas y fondo de filas alternas
   fases.forEach((f, i) => {
     const y = top0 + i * rh;
-    if (i % 2 === 0) s.addShape(pres.shapes.RECTANGLE, { x: gx0, y, w: gl - gx0 + gw * 8, h: rh, fill: { color: TINT }, line: { type: "none" }, objectName: on("fila") });
-    txt(s, f[0], { x: gx0 + 0.08, y, w: 2.75, h: rh, fontSize: 13, valign: "middle" });
-    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: gl + f[1] * gw + 0.04, y: y + 0.12, w: f[2] * gw - 0.08, h: rh - 0.24, fill: { color: f[3] }, rectRadius: 0.06, line: { type: "none" }, objectName: on("barra") });
+    if (i % 2 === 0) s.addShape(pres.shapes.RECTANGLE, { x: gx0, y, w: gl - gx0 + gw * nd, h: rh, fill: { color: TINT }, line: { type: "none" }, objectName: on("fila") });
+    txt(s, f[0], { x: gx0 + 0.06, y, w: lw - 0.06, h: rh, fontSize: 12, valign: "middle" });
+    txt(s, f[1], { x: gx0 + lw, y, w: hw, h: rh, fontSize: 12, bold: true, color: f[1] === "—" ? GRAY : INK, align: "center", valign: "middle" });
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: gl + f[2] * gw + 0.03, y: y + 0.1, w: f[3] * gw - 0.06, h: rh - 0.2, fill: { color: f[4] }, rectRadius: 0.05, line: { type: "none" }, objectName: on("barra") });
   });
-  // Hitos: fin del martes 06 (publicación) y martes 13 (exposición)
+  s.addShape(pres.shapes.LINE, { x: gl + 7 * gw, y: gt + 0.25, w: 0, h: nf * rh + 0.45, line: { color: HEX.line, width: 1 }, objectName: on("semana") });
+  // Hitos: fin del martes 06/10 (publicación) y martes 13/10 (exposición)
   const hitoY = top0 + nf * rh;
-  s.addShape(pres.shapes.LINE, { x: gl + 2 * gw, y: gt + 0.45, w: 0, h: nf * rh + 0.1, line: { color: HEX.ink, width: 1.25, dashType: "dash" }, objectName: on("hito") });
-  s.addShape(pres.shapes.LINE, { x: gl + 7.5 * gw, y: gt + 0.45, w: 0, h: nf * rh + 0.1, line: { color: RED_D, width: 1.5, dashType: "dash" }, objectName: on("hito") });
-  txt(s, "▲ Publicado 06/10", { x: gl + 2 * gw - 0.05, y: hitoY + 0.12, w: 1.9, h: 0.3, fontSize: 12, bold: true });
-  txt(s, "Expo 13/10 ▲", { x: gl + 7.5 * gw - 1.45, y: hitoY + 0.12, w: 1.4, h: 0.3, fontSize: 12, bold: true, color: RED_D, align: "right" });
-  txt(s, "Todas las tareas terminan el domingo 11/10.", { x: gx0, y: hitoY + 0.45, w: 7.9, h: 0.3, fontSize: 12, color: GRAY, italic: true });
-  notes(s, "0:40 (acumulado 6:40)", "El alcance es deliberadamente chico: lo mínimo que resuelve el problema. El pago en línea o una app quedan para una versión 2. El plan entra en una semana: el lunes 5 y el martes 6 hice el análisis y los cuatro incrementos cortos, con un tablero Kanban y mostrando cada avance a la familia; el sitio se publicó el martes 6. El miércoles validé el análisis con el negocio, y hasta el domingo 11 quedan la evaluación, el pedido real con la medición de uso y el ensayo. Todo termina antes de la exposición del 13.");
+  s.addShape(pres.shapes.LINE, { x: gl + 9 * gw, y: gt + 0.65, w: 0, h: nf * rh + 0.1, line: { color: HEX.ink, width: 1.25, dashType: "dash" }, objectName: on("hito") });
+  s.addShape(pres.shapes.LINE, { x: gl + 14.5 * gw, y: gt + 0.65, w: 0, h: nf * rh + 0.1, line: { color: RED_D, width: 1.5, dashType: "dash" }, objectName: on("hito") });
+  txt(s, [{ text: "Total 48 h", options: { bold: true } }], { x: gx0 + 0.06, y: hitoY + 0.05, w: lw + hw - 0.06, h: 0.3, fontSize: 12, align: "right" });
+  txt(s, "Publicado 06/10 ▲", { x: gl + 9 * gw - 1.85, y: hitoY + 0.05, w: 1.8, h: 0.3, fontSize: 12, bold: true, align: "right" });
+  txt(s, "Expo 13/10 ▲", { x: gl + 14.5 * gw - 1.45, y: hitoY + 0.05, w: 1.4, h: 0.3, fontSize: 12, bold: true, color: RED_D, align: "right" });
+  txt(s, "Todas las tareas terminan el domingo 11/10.", { x: gx0, y: hitoY + 0.38, w: 7.9, h: 0.28, fontSize: 11, color: GRAY, italic: true });
+  notes(s, "0:40 (acumulado 6:40)", "El alcance es deliberadamente chico: lo mínimo que resuelve el problema. El pago en línea o una app quedan para una versión 2. El proyecto llevó dos semanas y 48 horas de trabajo. La primera semana fue de planificación: el Beat Chart con el enfoque y el método, el cuestionario al negocio, el diseño y un prototipo de la carta. La segunda fue de construcción, en incrementos cortos con un tablero Kanban y mostrando cada avance a la familia: el sitio se publicó el martes 6, el 7 validé el análisis con el negocio, y hasta el domingo 11 quedan el pedido real con la medición de uso y el ensayo. Todo termina antes de la exposición del 13.");
 
   // ===== 11. Presupuesto =====
   s = content("III. Trabajo principal · Presupuesto", "Presupuesto y financiamiento", S4);
