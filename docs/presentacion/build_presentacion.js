@@ -12,7 +12,9 @@ const { applyTheme } = require("/mnt/skills/public/pptx/scripts/apply_theme.js")
 
 const ROOT = path.resolve(__dirname, "../..");
 const P = (...p) => path.join(ROOT, ...p);
-const OUT = path.join(__dirname, "DanyPizzas_Presentacion.pptx");
+// MODO=principal (20 diapositivas que se exponen) o MODO=anexos (respaldo para preguntas)
+const MODO = process.env.MODO === "anexos" ? "anexos" : "principal";
+const OUT = path.join(__dirname, MODO === "anexos" ? "DanyPizzas_Anexos.pptx" : "DanyPizzas_Presentacion.pptx");
 
 const HEX = {
   ink: "2B2420", red: "E83030", redDark: "B42323", green: "309880", greenDark: "1F6E5C",
@@ -124,10 +126,12 @@ const notes = (s, t, guion) => s.addNotes(`⏱ ${t}\n\n${guion}`);
 
 async function build() {
   const S1 = "Introducción", S2 = "I. Curriculum vitae", S3 = "II. Memoria descriptiva", S4 = "III. Trabajo principal", S5 = "Anexos";
+  let s;
 
+  if (MODO === "principal") {
   // ===== 1. Portada =====
   pres.addSection({ title: S1 });
-  let s = pres.addSlide({ masterName: "Oscuro", sectionTitle: S1 });
+  s = pres.addSlide({ masterName: "Oscuro", sectionTitle: S1 });
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.8, y: 1.25, w: 4.4, h: 4.7, fill: { color: CREAM }, rectRadius: 0.25, line: { type: "none" }, objectName: "logo-fondo" });
   s.addImage({ path: img("site/assets/img/logo.png"), x: 1.05, y: 1.45, w: 3.9, h: 4.16, objectName: "logo" });
   txt(s, "INGENIERÍA DE SOFTWARE · COMISIÓN A", { x: 5.8, y: 1.25, w: 7, h: 0.35, fontSize: 13, bold: true, color: HEX.yellow, charSpacing: 2 });
@@ -579,8 +583,10 @@ async function build() {
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 8.9, y: 1.6, w: 3.6, h: 4.3, fill: { color: WHITE }, rectRadius: 0.2, line: { type: "none" }, objectName: "qr-fondo" });
   s.addImage({ path: img("docs/qr-sitio.png"), x: 9.2, y: 1.9, w: 3.0, h: 3.0, objectName: "qr-cierre" });
   txt(s, "Pedí desde tu celular", { x: 8.9, y: 5.05, w: 3.6, h: 0.5, fontSize: 16, bold: true, color: INK, align: "center" });
-  notes(s, "0:10 (acumulado 13:10)", "Muchas gracias. Pueden escanear el QR para probarlo. Quedo atento a sus preguntas. [Para responder, usar los anexos que siguen: ver la lista en guion-y-preguntas.md]");
+  notes(s, "0:10 (acumulado 13:10)", "Muchas gracias. Pueden escanear el QR para probarlo. Quedo atento a sus preguntas. [Para responder, abrir DanyPizzas_Anexos.pptx: ver la lista en guion-y-preguntas.md]");
 
+  }
+  if (MODO === "anexos") {
   // =================== ANEXOS (respaldo para preguntas) ===================
   pres.addSection({ title: S5 });
   s = pres.addSlide({ masterName: "Seccion", sectionTitle: S5 });
@@ -712,6 +718,7 @@ async function build() {
   txt(s, "Después", { x: 7.2, y: 1.8, w: 5, h: 0.45, fontFace: "Cambria", fontSize: 20, bold: true, color: GREEN_D });
   txt(s, bul(["Todo lo anterior (nada se reemplaza)", "Sitio web en GitHub Pages", "Backend en Google Apps Script", "Planilla mensual en Google Sheets", "Código QR del enlace", "Costo: $0 de hardware y servidores"]), { x: 7.2, y: 2.4, w: 5.2, h: 4.1, fontSize: 17, paraSpaceAfter: 8 });
 
+  }
   await pres.writeFile({ fileName: OUT });
   await applyTheme(OUT, THEME);
   console.log("OK", OUT);

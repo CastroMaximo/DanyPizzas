@@ -27,7 +27,8 @@
 | 18 | Conclusiones | 0:45 | 12:35 |
 | 19 | Recomendaciones | 0:25 | 13:00 |
 | 20 | Gracias / preguntas | 0:10 | **13:10** |
-| 21+ | Anexos A1–A10 | — | solo para preguntas |
+
+Los anexos A1–A10 están en un archivo aparte, `DanyPizzas_Anexos.pptx` (11 diapositivas): no se exponen, solo se abren si una pregunta lo necesita.
 
 Reparto: introducción y memoria ≈ 3:20 · problema y objetivos ≈ 2:40 · desarrollo ≈ 5:00 · resultados y cierre ≈ 2:10.
 
@@ -47,7 +48,7 @@ Reparto: introducción y memoria ≈ 3:20 · problema y objetivos ≈ 2:40 · de
 | 7 | Dominio del tema | No leer. Saber de memoria: 50 pedidos/semana, 1 de cada 10 con error, ~1 perdido por noche, $234.720 de inversión, VAN $583.451, 97,8 %, 4 meses, 44 pruebas, $0/mes. |
 | 8 | Organización | Usar las frases puente: “¿Por qué pasa esto?” (7→8), “De esas causas salen los objetivos” (8→9), “¿Conviene económicamente?” (11→12), “Para cerrar, conecto todo” (17→18). |
 | 9 | Diapositivas | Ya están sintetizadas; el detalle quedó en los anexos. Señalar el número clave de cada diapositiva y explicarlo con tus palabras. |
-| 10 | Preguntas | Ver la sección 3. Ir al anexo correspondiente si ayuda (en PowerPoint: escribir el número de diapositiva + Enter). |
+| 10 | Preguntas | Ver la sección 3. Si un anexo ayuda, tener `DanyPizzas_Anexos.pptx` ya abierto en segundo plano y pasar a él (Alt+Tab). |
 
 ## 3. Preguntas probables y respuesta preparada
 
@@ -71,6 +72,7 @@ Reparto: introducción y memoria ≈ 3:20 · problema y objetivos ≈ 2:40 · de
 
 - [ ] Completar los recuadros PENDIENTE (CV, fechas del Gantt, capturas del pedido real).
 - [ ] Probar el clicker o el control desde el celular con tu computadora.
+- [ ] Dejar abierto `DanyPizzas_Anexos.pptx` en segundo plano para las preguntas.
 - [ ] Abrir el PowerPoint en **vista Moderador** (ves las notas y el tiempo; el público solo la diapositiva).
 - [ ] Guardar una **copia en PDF** y llevarla en un pendrive.
 - [ ] Probar el sitio en la red del aula. Si la exposición es de día, el sitio dirá “cerrado”: abrí https://castromaximo.github.io/DanyPizzas/?ahora=2026-10-13T22:00 (modo demo).
