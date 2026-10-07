@@ -1,7 +1,7 @@
 # HANDOFF — Dany Pizzas Web (proyecto de Ingeniería de Software)
 
 > Archivo de estado. Si la sesión se corta, leer ESTE archivo primero y continuar desde "Estado actual".
-> Última actualización: 2026-10-07 07:55 (producto publicado y planilla activa; análisis RF/RNF, FODA e Ishikawa hechos; falta la presentación según el esquema). **Fecha de entrega y exposición: 13/10/2026.**
+> Última actualización: 2026-10-07 09:10 (respuestas del usuario cargadas; memoria descriptiva y evaluación económica con Monte Carlo hechas; falta la presentación según el esquema). **Fecha de entrega y exposición: 13/10/2026.**
 
 ## 1. Qué es
 Sitio web estático (mobile-first) para el emprendimiento **Dany Pizzas / Dany Pizzería** (Chilecito, La Rioja, Argentina; 3 personas; solo envío a domicilio). El cliente arma el pedido, el sitio genera un ID y un recibo, y abre WhatsApp con el recibo prellenado. Después el cliente paga y manda el comprobante; recién ahí se prepara.
@@ -101,7 +101,10 @@ Pruebas: `node --test` (Node 18+; no hace falta instalar paquetes). Modo demo: `
 - [ ] Pedido real de prueba (lo hace el usuario más adelante)
 - [x] Análisis (07/10) en `docs/analisis/`: RF-01…RF-20 y RNF-01…RNF-15 con trazabilidad; FODA + EFI 2,45 / EFE 2,32 → cuadrante V (conservar y mantener) + estrategias FO/FA/DO/DA; Ishikawa 6 categorías (PNG + drawio). Puntajes y causas = **propuesta a validar con el negocio**
 - [x] Dossier de transición (actividad aparte) entregado: `docs/entregas/` + deck de exposición en artifact
-- [ ] **Presentación rehecha según el esquema del profesor** (ver 6) — bloqueada por datos: ver `docs/analisis/PENDIENTES_DEL_USUARIO.md`
+- [x] Respuestas del usuario (07/10): FODA, Ishikawa y requisitos **aprobados**; organización: Cocinero (dueño), Ayudante, Encargado de atención + repartidor externo; inicio 2024; informal; cocina en casa, horno de 6 moldes. Portada: Universidad Nacional de Moquegua, Fac. de Ingenierías, EP de Ingeniería de Sistemas e Informática, Ingeniería de Software, Comisión A. Relación de trabajos: se omite. Proyecta desde su PC → .pptx
+- [x] `docs/analisis/memoria-descriptiva.md` (misión/visión **propuestas**, falta aprobar)
+- [x] `docs/analisis/evaluacion-economica.md` + `economia/evaluacion_economica.py` (Monte Carlo 10.000 it., semilla 2026). Base: inversión $234.720, beneficio $90.697/mes, VAN 12 m $583.451, TIR 26,8 %/mes, B/C 2,71, recupero 3,9 meses; MC: P(VAN>0) 97,8 %. Tasa: TNA 17,5 % BNA; hora: SMVM $1.956 (oct-2026)
+- [ ] **Presentación rehecha según el esquema del profesor** (ver 6) — falta: CV del estudiante, fechas reales (Gantt), pedido real + capturas, duración de la exposición. Ver `docs/analisis/PENDIENTES_DEL_USUARIO.md`
 - [x] Diagramas (06/10): casos de uso, clases, C4 contexto y contenedores, secuencia del pedido → `diagramas/` (draw.io editable + fuente Mermaid + PNG + SVG; GitHub los dibuja en `diagramas/README.md`)
 - [ ] Evidencias de que es real (capturas de la web publicada, pedido real llegando a WhatsApp, fila en la planilla)
 - [x] Publicar en GitHub Pages + QR (`docs/qr-sitio.png`)

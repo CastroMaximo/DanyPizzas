@@ -1,69 +1,59 @@
-# Lo que falta para terminar la presentación (completar y devolver)
+# Lo que falta para terminar la presentación
 
-> Respondé debajo de cada punto. Si no sabés un número exacto, poné un **aproximado** y aclaralo: alcanza para la evaluación económica.
-> Lo marcado con ⭐ es imprescindible; el resto mejora la nota pero tiene alternativa.
+> Actualizado el 07/10/2026 con las respuestas del estudiante. ✅ = respondido · ⏳ = falta · 🟡 = respondido, falta una confirmación chica.
+> Lo marcado con ⭐ es imprescindible.
 
-## A. Datos del negocio (Memoria descriptiva)
+## Resumen: qué queda
 
-1. ⭐ **Las 3 personas:** nombre (o solo rol si preferís no nombrarlas) y qué hace cada una. ¿Quién es el dueño o responsable?
-   → 
-2. **Año de inicio** del emprendimiento:
-   → 
-3. **Situación legal:** ¿está inscripto (monotributo, a nombre de quién) o es informal?
-   → 
-4. **Ubicación:** ¿alcanza con "Chilecito, La Rioja" o querés poner barrio o zona de reparto?
-   → 
-5. **Misión y visión:** ¿existen? Si no, ¿las redacto yo y vos las aprobás? (sí / no)
-   → 
-6. **Infraestructura:** dónde se cocina (casa o local), tipo de horno, cantidad de hornos o pizzas por tanda, y si el repartidor es de la familia o externo.
-   → 
+| # | Qué falta | Prioridad |
+|---|---|---|
+| 23 | Pedido real de prueba + 3 capturas | ⭐ |
+| 19 | Tu curriculum vitae (lo estás preparando) | ⭐ |
+| 25 | Fechas reales del proyecto (para el Gantt) | importante |
+| 5 | Aprobar la misión, visión y valores propuestos | chico |
+| 10 | Confirmar que “fin de semana” = sábado y domingo | chico |
+| 12 | Confirmar que el 40 % es ganancia sobre el precio de venta | chico |
+| 22 | Duración de la exposición (minutos) | chico |
+| 24 | Uso real hasta el 13/10 y opinión de 2 o 3 clientes | mejora la nota |
 
-## B. Validar lo que ya está hecho (sí / corregir)
+---
 
-7. ⭐ **FODA y puntajes** (`docs/analisis/foda.md`): ¿aceptás los factores, pesos y calificaciones, o cambiás alguno?
-   → 
-8. **Ishikawa** (`docs/analisis/ishikawa.md`): ¿alguna causa no es real o falta alguna?
-   → 
-9. **Requisitos** (`docs/analisis/requisitos.md`): ¿algo que el negocio pida y no esté?
-   → 
+## A. Datos del negocio (Memoria descriptiva) → `memoria-descriptiva.md`
 
-## C. Datos para la evaluación económica (VAN, TIR, ROI, B/C, recupero)
+1. ⭐ ✅ **Las 3 personas:** Cocinero (dueño), Ayudante y Encargado de atención al cliente.
+2. ✅ **Año de inicio:** 2024.
+3. ✅ **Situación legal:** informal.
+4. ✅ **Ubicación:** Chilecito, La Rioja.
+5. 🟡 **Misión y visión:** no existían. Las redacté en `memoria-descriptiva.md`, sección 3. → **Aprobalas o corregilas.**
+6. ✅ **Infraestructura:** se cocina en la casa; horno pizzero de 6 moldes; repartidor externo.
 
-10. ⭐ **Pedidos por noche** hoy: promedio en un día de semana y en un fin de semana.
-    → 
-11. ⭐ **Ticket promedio:** cuánto gasta un cliente por pedido, o cuántas pizzas suele llevar.
-    → 
-12. ⭐ **Costo de insumos de una pizza** (aprox.), por ejemplo de una de $9.500, para calcular la ganancia por pizza.
-    → 
-13. ⭐ **Minutos por pedido** que hoy lleva atender el chat, desde el "hola" hasta el pedido confirmado.
-    → 
-14. **Errores o pérdidas:** de cada 10 pedidos, ¿cuántos tienen un error (gusto, dirección, total) o una repregunta? ¿Se pierden pedidos por no contestar a tiempo? ¿Cuántos por semana, más o menos?
-    → 
-15. **Valor de una hora de trabajo:** lo que se pagaría a un ayudante por hora, para valorar el tiempo ahorrado.
-    → 
-16. **Horas que dedicaste al desarrollo** (aprox.), para el costo del proyecto.
-    → 
-17. **Tasa de descuento:** ¿la cátedra da una? Si no, uso la tasa de plazo fijo vigente (la busco yo).
-    → 
+## B. Validar lo hecho
 
-## D. Decisiones de formato (de la cátedra)
+7. ⭐ ✅ **FODA y puntajes:** aprobados sin cambios.
+8. ✅ **Ishikawa:** aprobado.
+9. ✅ **Requisitos:** aprobados.
 
-18. ⭐ **Evaluación económica:** ¿hace falta simulación Monte Carlo como en el ejemplo del profesor, o alcanza con VAN/TIR/ROI/B-C/recupero en tres escenarios (pesimista, base, optimista)?
-    → 
-19. **Curriculum vitae:** ¿se incluye el tuyo? Si sí: carrera, universidad o instituto, año que cursás, experiencia o cursos relevantes.
-    → 
-20. **Portada:** nombre exacto de la universidad o instituto, carrera, materia y comisión.
-    → 
-21. **"Relación de trabajos"** (sección III del esquema): ¿hay otros trabajos tuyos para listar, o se omite?
-    → 
-22. **Duración de la exposición** y si se proyecta desde tu computadora o la del aula (para decidir el formato: presentación web, PowerPoint o PDF).
-    → 
+## C. Evaluación económica → `evaluacion-economica.md` (hecha)
 
-## E. Evidencia real (para "Resultados por objetivo")
+10. ⭐ ✅ **Pedidos por noche:** 7 entre semana y 11 en fin de semana. 🟡 Tomé fin de semana = sábado y domingo (viernes como día de semana, que es lo conservador). **¿El viernes es de 7 o de 11?**
+11. ⭐ ✅ **Ticket promedio:** entre 1 y 3 pizzas por pedido (se usa 2 como valor más probable).
+12. ⭐ ✅ **Ganancia:** 40 %. 🟡 Lo tomé como 40 % del precio de venta (de $9.500 quedan $3.800). **¿Es así, o el 40 % es sobre el costo?** El proyecto conviene igual en ambos casos.
+13. ⭐ ✅ **Minutos por pedido:** 2 a 10.
+14. ✅ **Errores y pérdidas:** 1 de cada 10 pedidos con error; se pierde aprox. 1 pedido por día.
+15. ✅ **Valor de la hora:** sin dato → se usó el Salario Mínimo Vital y Móvil de octubre 2026 ($1.956/h) hasta 1,5 veces ese valor.
+16. ✅ **Horas de desarrollo:** 48 aprox.
+17. ✅ **Tasa de descuento:** sin dato de la cátedra → plazo fijo 30 días Banco Nación, TNA 17,5 %.
 
-23. ⭐ **Pedido real de prueba** desde el sitio publicado, con 3 capturas: confirmación en el sitio, mensaje en WhatsApp y fila en la planilla.
-    → 
-24. **Uso real:** si entre ahora y el 13/10 entran pedidos por la web, la cantidad (se ve en la planilla) y, si podés, la opinión de 2 o 3 clientes.
-    → 
-25. **Fechas reales del proyecto** para el cronograma (Gantt): cuándo empezaste, cuándo respondió el negocio el cuestionario y cuándo se publicó (esto último ya lo tengo: 06/10/2026).
-    → 
+## D. Formato (cátedra)
+
+18. ⭐ ✅ **Monte Carlo:** sí, hecho (10.000 iteraciones) junto con los tres escenarios y la sensibilidad.
+19. ⭐ ⏳ **Curriculum vitae:** se incluye; lo estás preparando.
+20. ✅ **Portada:** Universidad Nacional de Moquegua · Facultad de Ingenierías · Escuela Profesional de Ingeniería de Sistemas e Informática · Carrera: Ingeniería de Sistemas · Asignatura: Ingeniería de Software · Comisión A.
+21. ✅ **Relación de trabajos:** se omite por ahora.
+22. 🟡 **Exposición:** se proyecta desde tu computadora. → **Falta: ¿cuántos minutos dura?** Formato: PowerPoint (.pptx), que también se exporta a PDF de respaldo.
+
+## E. Evidencia real (Resultados por objetivo)
+
+23. ⭐ ⏳ **Pedido real de prueba** desde https://castromaximo.github.io/DanyPizzas/ con 3 capturas: confirmación en el sitio, mensaje en WhatsApp y fila en la planilla (después marcá la fila como “Descartado”).
+24. ⏳ **Uso real:** cantidad de pedidos por la web hasta el 13/10 (se ve en la planilla) y opinión de 2 o 3 clientes.
+25. ⏳ **Fechas reales:** cuándo empezaste el proyecto y cuándo respondió el negocio el cuestionario (la publicación ya la tengo: 06/10/2026).
