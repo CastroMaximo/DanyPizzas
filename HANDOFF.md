@@ -1,7 +1,7 @@
 # HANDOFF — Dany Pizzas Web (proyecto de Ingeniería de Software)
 
 > Archivo de estado. Si la sesión se corta, leer ESTE archivo primero y continuar desde "Estado actual".
-> Última actualización: 2026-10-07 09:05 (presentación principal v1 armada en .pptx con 33 diapositivas; quedan 7 espacios PENDIENTE por datos del usuario). **Fecha de entrega y exposición: 13/10/2026.**
+> Última actualización: 2026-10-07 10:15 (presentación v2 ajustada a la rúbrica: 20 diapositivas ≈ 13 min + anexos; guion y preguntas; quedan los PENDIENTE por datos del usuario). **Fecha de entrega y exposición: 13/10/2026.**
 
 ## 1. Qué es
 Sitio web estático (mobile-first) para el emprendimiento **Dany Pizzas / Dany Pizzería** (Chilecito, La Rioja, Argentina; 3 personas; solo envío a domicilio). El cliente arma el pedido, el sitio genera un ID y un recibo, y abre WhatsApp con el recibo prellenado. Después el cliente paga y manda el comprobante; recién ahí se prepara.
@@ -81,7 +81,7 @@ diagramas/       ← UML/C4: casos de uso, clases, C4 contexto/contenedores, sec
 docs/analisis/   ← requisitos.md (RF/RNF), foda.md (EFI/EFE/IE), ishikawa (.md/.png/.drawio), memoria-descriptiva.md,
                    evaluacion-economica.md, economia/ (script Monte Carlo + resultados.json + 3 gráficos PNG), PENDIENTES_DEL_USUARIO.md
 docs/entregas/   ← Dossier de transición (Word + PDF)
-docs/presentacion/ ← DanyPizzas_Presentacion.pptx + build_presentacion.js (generador) + assets/ (Ishikawa recortado)
+docs/presentacion/ ← DanyPizzas_Presentacion.pptx + build_presentacion.js (generador) + guion-y-preguntas.md + assets/
 docs/            ← PUBLICAR.md, qr-sitio.png, capturas/
 HANDOFF.md
 ```
@@ -106,8 +106,9 @@ Pruebas: `node --test` (Node 18+; no hace falta instalar paquetes). Modo demo: `
 - [x] Respuestas del usuario (07/10): FODA, Ishikawa y requisitos **aprobados**; organización: Cocinero (dueño), Ayudante, Encargado de atención + repartidor externo; inicio 2024; informal; cocina en casa, horno de 6 moldes. Portada: Universidad Nacional de Moquegua, Fac. de Ingenierías, EP de Ingeniería de Sistemas e Informática, Ingeniería de Software, Comisión A. Relación de trabajos: se omite. Proyecta desde su PC → .pptx
 - [x] `docs/analisis/memoria-descriptiva.md` (misión/visión **propuestas**, falta aprobar)
 - [x] `docs/analisis/evaluacion-economica.md` + `economia/evaluacion_economica.py` (Monte Carlo 10.000 it., semilla 2026). Base: inversión $234.720, beneficio $90.697/mes, VAN 12 m $583.451, TIR 26,8 %/mes, B/C 2,71, recupero 3,9 meses; MC: P(VAN>0) 97,8 %. Tasa: TNA 17,5 % BNA; hora: SMVM $1.956 (oct-2026)
-- [x] **Presentación principal v1 (07/10)**: `docs/presentacion/DanyPizzas_Presentacion.pptx` (33 diapositivas, notas del orador, validada) generada por `docs/presentacion/build_presentacion.js` (`node build_presentacion.js`; pptxgenjs + react-icons + sharp; aplica el tema con `apply_theme.js` del skill pptx). Estructura: portada · esquema · I CV · II Memoria (empresa, organización, misión/visión, infraestructura, FODA, posición IE, estrategias) · III Trabajo principal (Ishikawa, objetivos, alcance, Gantt, presupuesto, evaluación económica ×4, arquitectura, casos de uso, secuencia, RF ×2, RNF, desarrollo, producto, resultados, conclusiones, recomendaciones) · cierre con QR. "Relación de trabajos" omitida → el trabajo principal se numeró III. Presupuesto por macrofase: reparto de las 48 h **estimado** (8/8/18/8/6).
-- [ ] **Completar los 7 espacios PENDIENTE de la presentación** (recuadros rojos punteados; editar los textos en `build_presentacion.js` y regenerar): CV (diap. 3), fechas del Gantt (diap. 16), 3 capturas del pedido real + uso real (diap. 30), aprobación de misión/visión (etiqueta en diap. 7). También falta la duración de la exposición para ajustar la cantidad de diapositivas.
+- [x] **Presentación v2 (07/10) ajustada a la rúbrica** (`Criterio Evaluativo Software.pdf` en el proyecto: 10 criterios × 2 pts; **exposición de 10 a 15 min**). `docs/presentacion/DanyPizzas_Presentacion.pptx`, generada por `build_presentacion.js`. **20 diapositivas principales (~13:10, tiempo en cada nota del orador) + 11 de anexos (A1–A10) para preguntas.** Cambios clave: problema dramatizado (diap. 7, "Sábado 22:00", chat + $197.600/mes de ganancia perdida = 6 pedidos/sem × 2 × $3.800 × 4,33), Ishikawa redibujado nativo y legible (diap. 8), objetivos con "ataca: causas", resultados antes/ahora (diap. 17), conclusiones como trazabilidad problema→qué se hizo→conclusión (diap. 18); RF/RNF completos, supuestos, sensibilidad, casos de uso y secuencia pasaron a anexos. Docente escrito como en la rúbrica: "Dr. Alexander Morales Gonzales".
+- [x] `docs/presentacion/guion-y-preguntas.md`: tiempos por diapositiva con puntos de control, qué hacer en cada criterio (terno, clicker, voz, movimiento), 13 preguntas probables con respuesta y anexo, checklist del día.
+- [ ] **Completar los PENDIENTE de la presentación** (recuadros rojos punteados; editar `build_presentacion.js` y regenerar): CV (diap. 3), fechas del Gantt (diap. 10), 3 capturas del pedido real + pedidos web hasta el 13/10 (diap. 17), aprobación de misión/visión (etiqueta en diap. 4).
 - [x] Diagramas (06/10): casos de uso, clases, C4 contexto y contenedores, secuencia del pedido → `diagramas/` (draw.io editable + fuente Mermaid + PNG + SVG; GitHub los dibuja en `diagramas/README.md`)
 - [ ] Evidencias de que es real (capturas de la web publicada, pedido real llegando a WhatsApp, fila en la planilla)
 - [x] Publicar en GitHub Pages + QR (`docs/qr-sitio.png`)
@@ -142,6 +143,6 @@ Corrección pendiente de la presentación v1: (a) le faltan evaluación económi
 ## 8. Cómo retomar en una sesión nueva
 1. Leer este HANDOFF y `claude/Pendientes_presentacion.md` del proyecto.
 2. Clonar `CastroMaximo/DanyPizzas` (Claude tiene permiso de push) y correr `node --test` (deben pasar 44).
-3. Próximo trabajo: **completar la presentación** (`docs/presentacion/`) con los datos que pase el usuario: reemplazar cada `pendiente(...)` del generador por el contenido real (CV en diap. 3, fechas en el Gantt de la diap. 16, capturas en la diap. 30 con `addImage`), quitar la etiqueta de misión/visión cuando la apruebe, regenerar con `node build_presentacion.js`, validar (`validate.py`) y revisar visualmente. Si la exposición es corta, recortar diapositivas (candidatas: 11 estrategias, 23 casos de uso, 24 secuencia).
+3. Próximo trabajo: **completar la presentación** (`docs/presentacion/`) con los datos del usuario: reemplazar cada `pendiente(...)` del generador (CV diap. 3, Gantt diap. 10, capturas diap. 17 con `addImage`), quitar la etiqueta de misión/visión cuando la apruebe, regenerar con `node build_presentacion.js`, validar y revisar visualmente. **Respetar la rúbrica:** 10–15 min (no agregar diapositivas principales; lo nuevo va a anexos), texto sintetizado, notas con tiempos.
 4. Si cambia algún dato económico: editar `PARAMS` (o `TNA`) en `docs/analisis/economia/evaluacion_economica.py`, ejecutar `python3 evaluacion_economica.py` y actualizar las cifras de `evaluacion-economica.md`. Verificar la tasa de plazo fijo vigente antes del 13/10.
 
