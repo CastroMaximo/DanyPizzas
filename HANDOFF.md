@@ -98,7 +98,7 @@ Pruebas: `node --test` (Node 18+; no hace falta instalar paquetes). Modo demo: `
 - [x] Apps Script desplegado, URL en `site/js/config.js`, planilla verificada por el usuario (06/10)
 - [ ] Pedido real de prueba (lo hace el usuario más adelante)
 - [ ] **Presentación rehecha según el esquema del profesor** (ver 6)
-- [x] Diagramas (06/10): casos de uso, clases, C4 contexto y contenedores, secuencia del pedido → `diagramas/` (fuente Mermaid + PNG + SVG; GitHub los dibuja en `diagramas/README.md`)
+- [x] Diagramas (06/10): casos de uso, clases, C4 contexto y contenedores, secuencia del pedido → `diagramas/` (draw.io editable + fuente Mermaid + PNG + SVG; GitHub los dibuja en `diagramas/README.md`)
 - [ ] Evidencias de que es real (capturas de la web publicada, pedido real llegando a WhatsApp, fila en la planilla)
 - [x] Publicar en GitHub Pages + QR (`docs/qr-sitio.png`)
 

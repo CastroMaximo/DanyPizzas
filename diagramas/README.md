@@ -1,6 +1,15 @@
 # Diagramas — Dany Pizzas
 
-Fuente en Mermaid (`.mmd`): GitHub los dibuja directamente en esta página. Las imágenes `.png` (para presentaciones) y `.svg` (para documentos, escalan sin perder calidad) se generan desde la misma fuente.
+Cada diagrama está en cuatro formatos:
+
+| Formato | Para qué |
+|---|---|
+| `.drawio` | **Editar a mano** con figuras UML nativas (actores, casos de uso, clases, líneas de vida). Se abre en <https://app.diagrams.net> (Archivo → Abrir) o en VS Code con la extensión *Draw.io Integration*. Desde draw.io se puede exportar a PNG, SVG o PDF. |
+| `.mmd` | Fuente Mermaid: GitHub la dibuja directamente en esta página. |
+| `.png` | Imagen para presentaciones. |
+| `.svg` | Imagen para documentos (escala sin perder calidad). |
+
+> Los `.drawio` y los `.mmd` representan lo mismo pero son independientes: si se cambia uno, conviene actualizar el otro.
 
 Para regenerar las imágenes después de editar un `.mmd`:
 
@@ -12,7 +21,7 @@ npx -p @mermaid-js/mermaid-cli mmdc -i diagramas/clases.mmd -o diagramas/clases.
 
 Qué puede hacer cada actor con el sistema. CU-04 *Confirmar pedido* incluye calcular el total, asignar el N° de pedido y registrarlo en la planilla.
 
-Imagen: [`casos-de-uso.png`](casos-de-uso.png) · [`casos-de-uso.svg`](casos-de-uso.svg)
+Editable: [`casos-de-uso.drawio`](casos-de-uso.drawio) · Imagen: [`casos-de-uso.png`](casos-de-uso.png) · [`casos-de-uso.svg`](casos-de-uso.svg)
 
 ```mermaid
 flowchart LR
@@ -62,7 +71,7 @@ flowchart LR
 
 Entidades del negocio (Pedido, ItemPedido, Pizza, Cliente, MedioPago, EstadoPedido) y los módulos del código que las usan (`app.js`, `lib.js`, `Code.gs`) y las hojas de Google Sheets donde se guardan.
 
-Imagen: [`clases.png`](clases.png) · [`clases.svg`](clases.svg)
+Editable: [`clases.drawio`](clases.drawio) · Imagen: [`clases.png`](clases.png) · [`clases.svg`](clases.svg)
 
 ```mermaid
 classDiagram
@@ -174,7 +183,7 @@ classDiagram
 
 El sistema como una caja negra: quiénes lo usan (cliente y equipo) y con qué sistemas externos se relaciona (WhatsApp, Mercado Pago / banco, Instagram).
 
-Imagen: [`c4-contexto.png`](c4-contexto.png) · [`c4-contexto.svg`](c4-contexto.svg)
+Editable: [`c4-contexto.drawio`](c4-contexto.drawio) · Imagen: [`c4-contexto.png`](c4-contexto.png) · [`c4-contexto.svg`](c4-contexto.svg)
 
 ```mermaid
 flowchart TB
@@ -204,7 +213,7 @@ flowchart TB
 
 Las piezas desplegables dentro del sistema: sitio web (GitHub Pages), almacenamiento local del navegador, backend (Google Apps Script) y planilla (Google Sheets), más la publicación automática con GitHub Actions.
 
-Imagen: [`c4-contenedores.png`](c4-contenedores.png) · [`c4-contenedores.svg`](c4-contenedores.svg)
+Editable: [`c4-contenedores.drawio`](c4-contenedores.drawio) · Imagen: [`c4-contenedores.png`](c4-contenedores.png) · [`c4-contenedores.svg`](c4-contenedores.svg)
 
 ```mermaid
 flowchart TB
@@ -242,7 +251,7 @@ flowchart TB
 
 El flujo completo de un pedido, incluido qué pasa si los datos están incompletos o si el backend no responde (el pedido sigue igual por WhatsApp).
 
-Imagen: [`secuencia-pedido.png`](secuencia-pedido.png) · [`secuencia-pedido.svg`](secuencia-pedido.svg)
+Editable: [`secuencia-pedido.drawio`](secuencia-pedido.drawio) · Imagen: [`secuencia-pedido.png`](secuencia-pedido.png) · [`secuencia-pedido.svg`](secuencia-pedido.svg)
 
 ```mermaid
 sequenceDiagram
