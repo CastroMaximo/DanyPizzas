@@ -62,15 +62,16 @@ Reparto: introducción y memoria ≈ 3:20 · problema y objetivos ≈ 2:40 · de
 | ¿Por qué el pesimista da negativo si decís que conviene? | El pesimista supone que las 17 variables salen mal a la vez. Monte Carlo muestra que eso pasa en solo el 2,2 % de los casos. | diap. 13, A3 |
 | ¿Por qué esa tasa de descuento? | No había una de la cátedra: usé el plazo fijo a 30 días del Banco Nación (TNA 17,5 %), que es el costo de oportunidad del dinero para el negocio. Es conservadora porque los flujos están en pesos constantes. | A2 |
 | ¿Cómo valorizaste tu trabajo? | 48 horas a 2,5 veces la hora del salario mínimo (oct-2026, $1.956). Aun a 5 veces el VAN sigue positivo (≈ $242.000). | A4 |
-| ¿Qué metodología usaste? | Modelo incremental con prototipos, enfoque ágil y Lean, Scrumban liviano: backlog con MoSCoW, tablero Kanban con WIP 2 y revisión semanal con la familia. | diap. 10 |
+| ¿Qué metodología usaste? | Modelo incremental con prototipos, enfoque ágil y Lean, Scrumban liviano: backlog con MoSCoW, tablero Kanban con WIP 2 e incrementos cortos que mostraba a la familia al terminar cada uno. | diap. 10 |
 | ¿Cómo probaste el sistema? | 44 pruebas automáticas (lógica y backend con Google simulado) que corren antes de cada publicación, pruebas de punta a punta con Playwright en móvil y PC, y la lista de aceptación con el negocio. | diap. 16 |
 | ¿Qué datos personales guarda? ¿Es legal? | Solo nombre, teléfono y dirección para la entrega, en una planilla privada del dueño, con aviso de privacidad (Ley 25.326 de Argentina). | A7 |
+| ¿Cómo hiciste todo en una semana? | El alcance es chico a propósito (lo mínimo que resuelve el problema) y usé servicios ya hechos y gratuitos: GitHub Pages, Google Sheets y Apps Script. Los cuatro incrementos fueron cortos y cada uno se probó antes de seguir; las 44 pruebas automáticas evitan romper lo anterior. | diap. 10 y 16 |
 | ¿Qué falta o qué harías en la v2? | Pago en línea, aviso de estado al cliente, panel de administración simple y promociones. Primero medir un mes de uso. | diap. 19 |
 | ¿Cómo sabés que los clientes lo van a usar? | No lo sé todavía: es el riesgo principal y por eso propongo medirlo el primer mes (pedidos web / total). Pero alcanza con recuperar un pedido cada 3 o 4 meses para que convenga. | diap. 13 |
 
 ## 4. Antes de exponer (día 13/10)
 
-- [ ] Completar los recuadros PENDIENTE (CV, fechas del Gantt, capturas del pedido real).
+- [ ] Completar los recuadros PENDIENTE (CV y capturas del pedido real).
 - [ ] Probar el clicker o el control desde el celular con tu computadora.
 - [ ] Dejar abierto `DanyPizzas_Anexos.pptx` en segundo plano para las preguntas.
 - [ ] Abrir el PowerPoint en **vista Moderador** (ves las notas y el tiempo; el público solo la diapositiva).

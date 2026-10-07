@@ -1,7 +1,7 @@
 # Memoria descriptiva — Dany Pizzas
 
 > Versión 1.0 · 07/10/2026 · Fuente: cuestionario del negocio y respuestas del 07/10.
-> 🟡 = redactado por el estudiante, **falta la aprobación del dueño**.
+> Misión, visión y valores redactados por el estudiante y **aprobados por el dueño el 07/10/2026**.
 
 ## 1. Datos generales
 
@@ -43,9 +43,9 @@ Tres personas, más un repartidor externo.
 
 **Implicancia para el proyecto:** toda la toma de pedidos depende de **una sola persona** (atención al cliente). En las noches fuertes es el cuello de botella: de ahí salen las demoras, los errores y los pedidos perdidos que ataca el sistema (ver `ishikawa.md`).
 
-## 3. Misión y visión 🟡
+## 3. Misión, visión y valores ✅
 
-El negocio no tenía misión ni visión escritas. Propuesta para aprobar o corregir:
+El negocio no tenía misión ni visión escritas. Las redactó el estudiante y el dueño las **aprobó sin cambios el 07/10/2026**:
 
 **Misión.** Llevar a las casas de Chilecito pizzas caseras, abundantes y a buen precio, hechas en familia, con un pedido simple y una atención cercana cada noche.
 

@@ -54,7 +54,7 @@ Los beneficios 1 y 2 se aplican solo a los pedidos que entran por la web (**adop
 | Valor de la hora de desarrollo | $1.956 | **$4.890** | $9.780 | Supuesto: de 1 a 5 × SMVM (no hay referencia de mercado local) |
 | Horas de mantenimiento por mes | 1 | **2** | 4 | Supuesto |
 
-**Supuestos de cálculo:** “fin de semana” = sábado y domingo; viernes se cuenta como día de semana (conservador). Un mes = 52/12 semanas. Con estos valores el negocio hace hoy **50 pedidos por semana (≈ 217 por mes)** y gana ≈ **$3.800 por pizza**.
+**Supuestos de cálculo:** “fin de semana” = sábado y domingo, y el viernes es día de semana (**confirmado por el negocio el 07/10**). Un mes = 52/12 semanas. Con estos valores el negocio hace hoy **50 pedidos por semana (≈ 217 por mes)** y gana ≈ **$3.800 por pizza**.
 
 ## 3. Escenario base, paso a paso
 
@@ -124,7 +124,7 @@ Con esas tres mediciones se reemplazan los supuestos por datos reales y se recal
 ## 6. Limitaciones
 
 - Los beneficios de tiempo son **ahorros de esfuerzo**, no ingresos en efectivo: liberan a quien atiende para otras tareas.
-- El margen del 40 % se interpreta **sobre el precio de venta**. Si fuera sobre el costo (markup), la ganancia por pizza sería ≈ $2.714 en vez de $3.800 y los beneficios por recupero bajarían un 29 %; el VAN base seguiría positivo (≈ $444.000).
+- El margen del 40 % es **sobre el precio de venta** (confirmado por el negocio el 07/10): de $9.500 quedan $3.800 por pizza. Como referencia, si fuera sobre el costo la ganancia sería ≈ $2.714 y el VAN base seguiría positivo (≈ $444.000).
 - No se incluye el costo de envío (lo cobra el repartidor externo) ni el dominio propio (opcional).
 - Capacidad: una noche fuerte (11 pedidos × 2 pizzas = 22 pizzas) son 4 tandas del horno de 6 moldes; recuperar ~2 pedidos por semana no excede la capacidad.
 

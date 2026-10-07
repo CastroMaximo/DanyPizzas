@@ -210,15 +210,18 @@ async function build() {
     txt(s, datos[i][2], { x: x + 0.7, y: y + 0.32, w: 2.75, h: 0.6, fontSize: 15 });
   }
   card(s, 5.8, 4.05, 6.9, 2.7, CREAM);
-  pill(s, "PROPUESTA · A APROBAR POR EL DUEÑO", 9.35, 4.2, 3.2, WHITE, RED_D);
+  pill(s, "APROBADAS POR EL DUEÑO · 07/10", 9.5, 4.2, 3.05, GREEN_D, WHITE);
   txt(s, [
     { text: "Misión. ", options: { bold: true, color: RED_D } },
     { text: "Llevar a las casas de Chilecito pizzas caseras y a buen precio, con un pedido simple y una atención cercana.", options: { breakLine: true } },
     { text: " ", options: { breakLine: true, fontSize: 6 } },
     { text: "Visión. ", options: { bold: true, color: GREEN_D } },
-    { text: "Ser para 2028 la pizzería de envío de referencia en Chilecito, creciendo de forma ordenada y formalizándose." },
-  ], { x: 6.1, y: 4.65, w: 6.35, h: 2.0, fontSize: 17 });
-  notes(s, "0:40 (acumulado 1:50)", "Dany Pizzas es un emprendimiento familiar e informal de Chilecito, que empezó en 2024. Trabaja solo con envío, de noche, y vende unos 50 pedidos por semana. Todo entra por WhatsApp. Como no tenían misión ni visión, propuse estas dos.");
+    { text: "Ser para 2028 la pizzería de envío de referencia en Chilecito, creciendo de forma ordenada y formalizándose.", options: { breakLine: true } },
+    { text: " ", options: { breakLine: true, fontSize: 6 } },
+    { text: "Valores. ", options: { bold: true, color: INK } },
+    { text: "Calidad casera · Precio justo · Trato cercano · Cumplimiento del horario." },
+  ], { x: 6.1, y: 4.6, w: 6.35, h: 2.1, fontSize: 15 });
+  notes(s, "0:40 (acumulado 1:50)", "Dany Pizzas es un emprendimiento familiar e informal de Chilecito, que empezó en 2024. Trabaja solo con envío, de noche, y vende unos 50 pedidos por semana. Todo entra por WhatsApp. Como no tenían misión ni visión, las redacté con ellos y el dueño las aprobó el 7 de octubre, junto con cuatro valores: calidad casera, precio justo, trato cercano y cumplir con el horario de entrega.");
 
   // ===== 5. Organización e infraestructura =====
   s = content("II. Memoria descriptiva", "Organización e infraestructura", S3);
@@ -359,24 +362,33 @@ async function build() {
   card(s, 0.6, 4.3, 3.9, 2.45, CREAM);
   txt(s, "No incluye (v2)", { x: 0.85, y: 4.42, w: 3.4, h: 0.4, fontFace: "Cambria", fontSize: 18, bold: true, color: RED_D });
   txt(s, bul(["Pago en línea", "App móvil nativa", "Seguimiento en tiempo real", "Más de un local"]), { x: 0.85, y: 4.85, w: 3.5, h: 1.8, fontSize: 14, paraSpaceAfter: 3 });
-  const gl = 7.35, gw = 1.07, gt = 1.6, rh = 0.55, gx0 = 4.8;
-  ["Sem 1", "Sem 2", "Sem 3", "Sem 4", "06–13/10"].forEach((c, i) => txt(s, c, { x: gl + i * gw, y: gt, w: gw, h: 0.35, fontSize: 12, bold: true, color: GRAY, align: "center" }));
+  // Gantt por días: lunes 05/10 a domingo 11/10 (todas las tareas terminan esta semana) + exposición martes 13/10.
+  const gl = 7.55, gw = 0.64, gt = 1.6, rh = 0.47, gx0 = 4.75;
+  const dias = ["Lun\n05", "Mar\n06", "Mié\n07", "Jue\n08", "Vie\n09", "Sáb\n10", "Dom\n11", "Mar\n13"];
+  dias.forEach((c, i) => txt(s, c, { x: gl + i * gw, y: gt - 0.05, w: gw, h: 0.5, fontSize: 11, bold: true, color: i === 7 ? RED_D : GRAY, align: "center", valign: "middle", paraSpaceAfter: 0 }));
+  // [tarea, día de inicio (0 = lun 05), duración en días, color]
   const fases = [
-    ["Análisis y diseño", 0, 1.3, GRAY], ["Inc. 1: carta", 1, 0.8, RED], ["Inc. 2: carrito", 1.7, 0.8, RED],
-    ["Inc. 3: recibo y WhatsApp", 2.4, 0.8, RED], ["Inc. 4: backend y planilla", 3, 0.95, RED],
-    ["Pruebas y publicación", 3.5, 1.1, GREEN], ["Evaluación y exposición", 4.1, 0.9, GREEN_D],
+    ["Análisis y requisitos", 0, 2, GRAY], ["Diseño y arquitectura", 0, 1, GRAY],
+    ["Inc. 1–2: carta y carrito", 0, 2, RED], ["Inc. 3–4: recibo y backend", 1, 1, RED],
+    ["Pruebas y publicación", 1, 1, GREEN], ["Validación con el negocio", 2, 1, GREEN_D],
+    ["Evaluación y documentos", 2, 2, GREEN_D], ["Pedido real y medición", 3, 4, GREEN],
+    ["Presentación y ensayo", 2, 5, INK],
   ];
+  const nf = fases.length, top0 = gt + 0.5;
   fases.forEach((f, i) => {
-    const y = gt + 0.45 + i * rh;
-    if (i % 2 === 0) s.addShape(pres.shapes.RECTANGLE, { x: gx0, y, w: gl - gx0 + gw * 5, h: rh, fill: { color: TINT }, line: { type: "none" }, objectName: on("fila") });
-    txt(s, f[0], { x: gx0 + 0.1, y, w: 2.45, h: rh, fontSize: 14, valign: "middle" });
-    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: gl + f[1] * gw + 0.03, y: y + 0.13, w: f[2] * gw - 0.06, h: rh - 0.26, fill: { color: f[3] }, rectRadius: 0.07, line: { type: "none" }, objectName: on("barra") });
+    const y = top0 + i * rh;
+    if (i % 2 === 0) s.addShape(pres.shapes.RECTANGLE, { x: gx0, y, w: gl - gx0 + gw * 8, h: rh, fill: { color: TINT }, line: { type: "none" }, objectName: on("fila") });
+    txt(s, f[0], { x: gx0 + 0.08, y, w: 2.75, h: rh, fontSize: 13, valign: "middle" });
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: gl + f[1] * gw + 0.04, y: y + 0.12, w: f[2] * gw - 0.08, h: rh - 0.24, fill: { color: f[3] }, rectRadius: 0.06, line: { type: "none" }, objectName: on("barra") });
   });
-  [4, 5].forEach((pos) => s.addShape(pres.shapes.LINE, { x: gl + pos * gw, y: gt + 0.4, w: 0, h: rh * 7 + 0.1, line: { color: HEX.ink, width: 1.25, dashType: "dash" }, objectName: on("hito") }));
-  txt(s, "Publicado 06/10 ▲", { x: gl + 4 * gw - 1.9, y: gt + 0.55 + 7 * rh, w: 1.85, h: 0.3, fontSize: 12, bold: true, align: "right" });
-  txt(s, "Expo 13/10 ▲", { x: gl + 5 * gw - 1.3, y: gt + 0.55 + 7 * rh, w: 1.25, h: 0.3, fontSize: 12, bold: true, align: "right" });
-  pendiente(s, gx0, 6.3, 7.9, 0.45, "Fechas reales de las semanas 1 a 4.", 12);
-  notes(s, "0:40 (acumulado 6:40)", "El alcance es deliberadamente chico: lo mínimo que resuelve el problema. El pago en línea o una app quedan para una versión 2. Trabajé en cuatro incrementos semanales con un tablero Kanban, mostrando cada avance a la familia. El sitio se publicó el 6 de octubre.");
+  // Hitos: fin del martes 06 (publicación) y martes 13 (exposición)
+  const hitoY = top0 + nf * rh;
+  s.addShape(pres.shapes.LINE, { x: gl + 2 * gw, y: gt + 0.45, w: 0, h: nf * rh + 0.1, line: { color: HEX.ink, width: 1.25, dashType: "dash" }, objectName: on("hito") });
+  s.addShape(pres.shapes.LINE, { x: gl + 7.5 * gw, y: gt + 0.45, w: 0, h: nf * rh + 0.1, line: { color: RED_D, width: 1.5, dashType: "dash" }, objectName: on("hito") });
+  txt(s, "▲ Publicado 06/10", { x: gl + 2 * gw - 0.05, y: hitoY + 0.12, w: 1.9, h: 0.3, fontSize: 12, bold: true });
+  txt(s, "Expo 13/10 ▲", { x: gl + 7.5 * gw - 1.45, y: hitoY + 0.12, w: 1.4, h: 0.3, fontSize: 12, bold: true, color: RED_D, align: "right" });
+  txt(s, "Todas las tareas terminan el domingo 11/10.", { x: gx0, y: hitoY + 0.45, w: 7.9, h: 0.3, fontSize: 12, color: GRAY, italic: true });
+  notes(s, "0:40 (acumulado 6:40)", "El alcance es deliberadamente chico: lo mínimo que resuelve el problema. El pago en línea o una app quedan para una versión 2. El plan entra en una semana: el lunes 5 y el martes 6 hice el análisis y los cuatro incrementos cortos, con un tablero Kanban y mostrando cada avance a la familia; el sitio se publicó el martes 6. El miércoles validé el análisis con el negocio, y hasta el domingo 11 quedan la evaluación, el pedido real con la medición de uso y el ensayo. Todo termina antes de la exposición del 13.");
 
   // ===== 11. Presupuesto =====
   s = content("III. Trabajo principal · Presupuesto", "Presupuesto y financiamiento", S4);
@@ -558,7 +570,7 @@ async function build() {
   // ===== 19. Recomendaciones =====
   s = content("III. Trabajo principal · Recomendaciones", "Recomendaciones por responsable", S4);
   const rec = [
-    ["FaUserTie", "Dueño", ["Aprobar misión y visión", "Mantener precios al día", "Evaluar formalizarse al crecer"], RED],
+    ["FaUserTie", "Dueño", ["Difundir misión y valores", "Mantener precios al día", "Evaluar formalizarse al crecer"], RED],
     ["FaHeadset", "Atención al cliente", ["Marcar estados en la planilla", "Anotar pedidos perdidos un mes", "Difundir el QR en cada entrega"], GREEN],
     ["FaCode", "Desarrollador", ["Recalcular con datos reales", "Mantener las actualizaciones", "v2: aviso de estado al cliente"], GREEN_D],
   ];
@@ -569,7 +581,7 @@ async function build() {
     txt(s, rec[i][1], { x: x + 1.2, y: 1.95, w: w - 1.4, h: 0.55, fontFace: "Cambria", fontSize: 20, bold: true, valign: "middle" });
     txt(s, bul(rec[i][2]), { x: x + 0.3, y: 2.95, w: w - 0.55, h: 3.6, fontSize: 18, paraSpaceAfter: 16 });
   }
-  notes(s, "0:25 (acumulado 13:00)", "Y tres recomendaciones: al dueño, aprobar la misión y mantener los precios; a quien atiende, anotar los pedidos perdidos durante un mes para medir; y como desarrollador, recalcular la evaluación con esos datos reales y avanzar a una versión 2.");
+  notes(s, "0:25 (acumulado 13:00)", "Y tres recomendaciones: al dueño, difundir la misión y los valores, y mantener los precios; a quien atiende, anotar los pedidos perdidos durante un mes para medir; y como desarrollador, recalcular la evaluación con esos datos reales y avanzar a una versión 2.");
 
   // ===== 20. Cierre =====
   s = pres.addSlide({ masterName: "Oscuro", sectionTitle: S4 });

@@ -9,10 +9,6 @@
 |---|---|---|
 | 23 | Pedido real de prueba + 3 capturas | ⭐ |
 | 19 | Tu curriculum vitae (lo estás preparando) | ⭐ |
-| 25 | Fechas reales del proyecto (para el Gantt) | importante |
-| 5 | Aprobar la misión, visión y valores propuestos | chico |
-| 10 | Confirmar que “fin de semana” = sábado y domingo | chico |
-| 12 | Confirmar que el 40 % es ganancia sobre el precio de venta | chico |
 | 24 | Uso real hasta el 13/10 y opinión de 2 o 3 clientes | mejora la nota |
 
 ---
@@ -23,7 +19,7 @@
 2. ✅ **Año de inicio:** 2024.
 3. ✅ **Situación legal:** informal.
 4. ✅ **Ubicación:** Chilecito, La Rioja.
-5. 🟡 **Misión y visión:** no existían. Las redacté en `memoria-descriptiva.md`, sección 3. → **Aprobalas o corregilas.**
+5. ✅ **Misión, visión y valores:** no existían; los redacté en `memoria-descriptiva.md` (sección 3) y **los aprobaste el 07/10**.
 6. ✅ **Infraestructura:** se cocina en la casa; horno pizzero de 6 moldes; repartidor externo.
 
 ## B. Validar lo hecho
@@ -34,9 +30,9 @@
 
 ## C. Evaluación económica → `evaluacion-economica.md` (hecha)
 
-10. ⭐ ✅ **Pedidos por noche:** 7 entre semana y 11 en fin de semana. 🟡 Tomé fin de semana = sábado y domingo (viernes como día de semana, que es lo conservador). **¿El viernes es de 7 o de 11?**
+10. ⭐ ✅ **Pedidos por noche:** 7 entre semana y 11 en fin de semana. Fin de semana = sábado y domingo; el viernes es día de semana (confirmado 07/10).
 11. ⭐ ✅ **Ticket promedio:** entre 1 y 3 pizzas por pedido (se usa 2 como valor más probable).
-12. ⭐ ✅ **Ganancia:** 40 %. 🟡 Lo tomé como 40 % del precio de venta (de $9.500 quedan $3.800). **¿Es así, o el 40 % es sobre el costo?** El proyecto conviene igual en ambos casos.
+12. ⭐ ✅ **Ganancia:** 40 % sobre el precio de venta (confirmado 07/10): de $9.500 quedan $3.800.
 13. ⭐ ✅ **Minutos por pedido:** 2 a 10.
 14. ✅ **Errores y pérdidas:** 1 de cada 10 pedidos con error; se pierde aprox. 1 pedido por día.
 15. ✅ **Valor de la hora:** sin dato → se usó el Salario Mínimo Vital y Móvil de octubre 2026 ($1.956/h) hasta 1,5 veces ese valor.
@@ -55,4 +51,4 @@
 
 23. ⭐ ⏳ **Pedido real de prueba** desde https://castromaximo.github.io/DanyPizzas/ con 3 capturas: confirmación en el sitio, mensaje en WhatsApp y fila en la planilla (después marcá la fila como “Descartado”).
 24. ⏳ **Uso real:** cantidad de pedidos por la web hasta el 13/10 (se ve en la planilla) y opinión de 2 o 3 clientes.
-25. ⏳ **Fechas reales:** cuándo empezaste el proyecto y cuándo respondió el negocio el cuestionario (la publicación ya la tengo: 06/10/2026).
+25. ✅ **Fechas del Gantt:** todo el plan entra en la semana del lunes 05/10 al domingo 11/10 (publicación 06/10, validación con el negocio 07/10, exposición 13/10). Detalle y prompt para un Gantt editable en `docs/presentacion/gantt-y-prompt.md`.
