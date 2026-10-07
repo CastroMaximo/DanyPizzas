@@ -15,10 +15,11 @@
     return '$' + s;
   }
 
-  // La mitad vale la mitad del precio, redondeada hacia arriba al múltiplo de `paso` (500 por defecto).
+  // La mitad vale la mitad del precio, redondeada al múltiplo de `paso` (500) MÁS CERCANO.
+  // Si queda justo en el medio (ej. 4.250), se redondea hacia arriba (4.500). Confirmado por el negocio.
   function precioMitad(precio, paso) {
     paso = paso || 500;
-    return Math.ceil(precio / 2 / paso) * paso;
+    return Math.round(precio / 2 / paso) * paso;
   }
 
   function precioUnitario(pizza, tam, cfg) {

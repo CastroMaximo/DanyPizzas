@@ -49,7 +49,7 @@ Usuario: Máximo Daniel Castro (GitHub `CastroMaximo`, repo `CastroMaximo/DanyPi
 | calabresa | Calabresa | 9500 | salsa de tomate, mozzarella, salame picado grueso, orégano, olivas verdes |
 | de-la-casa | De la Casa | 10500 | salsa de tomate, mozzarella, carne picada, huevo, olivas verdes (confirmado 06/10) |
 
-Mitades (regla: `ceil(precio/2 / 500) * 500`): Muzza 4.500 · resto de 9.500 → 5.000 · De la Casa 5.500.
+Mitades (regla **confirmada 06/10**: mitad del precio redondeada al múltiplo de $500 más cercano; si cae justo en el medio, hacia arriba): Muzza 4.500 · resto de 9.500 → 5.000 · De la Casa 5.500.
 
 ## 3. Supuestos que YO tomé (el usuario debe confirmarlos)
 1. **Redondeo de mitades:** siempre hacia arriba al múltiplo de $500 (el único ejemplo dado fue 9.500→5.000; 8.500 y 10.500 caen en empate).
@@ -89,15 +89,16 @@ Pruebas: `node --test` (Node 18+; no hace falta instalar paquetes). Modo demo: `
 - [x] Esquema del profesor leído (ver sección 6)
 - [x] Logo, fotos y colores preparados (rojo #E83030, verde #309880, crema #F7EBDB)
 - [x] Sitio construido y probado (Playwright móvil 390px + PC 1366px; flujo completo con y sin backend; 34 pruebas `node --test` OK)
-- [x] Backend Apps Script (`backend/Code.gs`) + guía (`backend/README.md`) — probado con Google simulado; **NO desplegado** (requiere cuenta Google del usuario)
+- [x] Backend Apps Script (`backend/Code.gs`) + guía (`backend/README.md`) — probado con Google simulado; **desplegado y activo desde el 06/10** (cuenta Google del negocio; URL cargada en `config.js`; verificado por el usuario)
 - [x] CI/CD (`.github/workflows/deploy.yml`: pruebas + publicación en Pages) — **sin ejecutar** (requiere repo en GitHub y Settings → Pages → Source: GitHub Actions)
 - [x] Paquete entregado al usuario (zip `DanyPizzas_v1.zip`)
 - [x] v1.2 (06/10): fotos de Calabresa, De la Casa y Doble Muzza; logo nuevo "DANY PIZZAS" (`assets/img/logo.png`, ícono `icono.png`); protección contra pedidos falsos en backend + 10 pruebas nuevas (44 en total OK); probado con Playwright (móvil y PC, backend simulado). Zip `DanyPizzas_v1_2.zip`
 - [x] Repo `CastroMaximo/DanyPizzas` creado por el usuario (vacío). Repo público `CastroMaximo/DanyPizzas`, código subido el 06/10 (app de Claude instalada, Claude puede hacer push). Job de pruebas en verde en Actions. URL final: https://castromaximo.github.io/DanyPizzas/ · QR en `docs/qr-sitio.png` · guía `docs/PUBLICAR.md`
 - [x] Pages activado y **sitio publicado el 06/10/2026: https://castromaximo.github.io/DanyPizzas/** (workflow en verde: pruebas + publicar)
-- [ ] Usuario: desplegar Apps Script, pegar URL en `site/js/config.js`, push, pedido real de prueba
+- [x] Apps Script desplegado, URL en `site/js/config.js`, planilla verificada por el usuario (06/10)
+- [ ] Pedido real de prueba (lo hace el usuario más adelante)
 - [ ] **Presentación rehecha según el esquema del profesor** (ver 6)
-- [ ] Diagramas: casos de uso, clases, C4 contexto/contenedores, secuencia del pedido
+- [ ] Diagramas: casos de uso, clases, C4 contexto/contenedores, secuencia del pedido (en curso 06/10, carpeta `diagramas/`)
 - [ ] Evidencias de que es real (capturas de la web publicada, pedido real llegando a WhatsApp, fila en la planilla)
 - [x] Publicar en GitHub Pages + QR (`docs/qr-sitio.png`)
 
@@ -106,7 +107,7 @@ Su ejemplo es su propio proyecto (gamificación en Dantes Burgers). Secciones: I
 Corrección pendiente de la presentación v1: (a) le faltan evaluación económico-financiera, RF/RNF, diagramas, resultados reales y conclusiones; (b) el "Docente" debe decir "Dr. Morales Gonzales Alexander"; (c) para la evaluación económica hacen falta datos reales del negocio (ver sección 7).
 
 ## 7. Preguntas abiertas para el usuario
-1. ¿Confirmás el redondeo de mitades (hacia arriba a $500)?
+1. ~~Redondeo de mitades~~ → confirmado: múltiplo de $500 más cercano (empate hacia arriba).
 2. ~~Ingredientes De la Casa~~ → resuelto: mozzarella, carne picada, huevo y olivas verdes.
 3. ~~Nombre~~ → resuelto: "Dany Pizzas". (El Instagram sigue siendo @dany.pizzeria.)
 4. Para la evaluación económica: pedidos promedio por noche (y por semana), ticket promedio, minutos que hoy se pierden por pedido atendiendo el chat, % de pedidos con errores/repreguntas, cuántas horas por semana podría ahorrar.

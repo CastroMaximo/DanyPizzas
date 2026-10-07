@@ -167,7 +167,7 @@ function calcular(items, catalogo) {
     if (!pizza) throw new Error('Pizza no disponible: ' + it.id);
     if (!(cant >= 1 && cant <= CFG.MAX_CANT)) throw new Error('Cantidad inválida');
     if (it.tam !== 'E' && it.tam !== 'M') throw new Error('Tamaño inválido');
-    var unit = it.tam === 'M' ? Math.ceil(pizza.precio / 2 / CFG.REDONDEO_MITAD) * CFG.REDONDEO_MITAD : pizza.precio;
+    var unit = it.tam === 'M' ? Math.round(pizza.precio / 2 / CFG.REDONDEO_MITAD) * CFG.REDONDEO_MITAD : pizza.precio;
     lineas.push({ id: pizza.id, nombre: pizza.nombre, tam: it.tam, cant: cant, unit: unit, subtotal: unit * cant });
     total += unit * cant;
     porciones += CFG.PORCIONES[it.tam] * cant;

@@ -8,11 +8,13 @@ const CAT = require('../site/data/catalogo.js');
 // Helper: fecha a partir de hora de Argentina (UTC-3, sin horario de verano)
 const ar = (iso) => new Date(iso + '-03:00');
 
-test('precioMitad: redondea hacia arriba al múltiplo de $500', () => {
-  assert.equal(L.precioMitad(9500, 500), 5000);   // ejemplo dado por el negocio
-  assert.equal(L.precioMitad(8500, 500), 4500);
-  assert.equal(L.precioMitad(10500, 500), 5500);
+test('precioMitad: redondea al múltiplo de $500 más cercano (empate → arriba)', () => {
+  assert.equal(L.precioMitad(9500, 500), 5000);   // ejemplo dado por el negocio (4.750 → 5.000)
+  assert.equal(L.precioMitad(8500, 500), 4500);   // 4.250: empate → arriba
+  assert.equal(L.precioMitad(10500, 500), 5500);  // 5.250: empate → arriba
   assert.equal(L.precioMitad(9000, 500), 4500);   // sin redondeo necesario
+  assert.equal(L.precioMitad(9200, 500), 4500);   // 4.600 → el más cercano es 4.500
+  assert.equal(L.precioMitad(9800, 500), 5000);   // 4.900 → 5.000
 });
 
 test('pesos: formato argentino con punto de miles', () => {
@@ -190,7 +192,7 @@ test('catálogo: precios positivos, ids únicos y mitades dentro de lo esperado'
   for (const p of CAT) {
     assert.ok(p.precio > 0 && p.precio % 500 === 0, p.id);
     const m = L.precioMitad(p.precio, CFG.redondeoMitad);
-    assert.ok(m >= p.precio / 2 && m < p.precio / 2 + 500, p.id);
+    assert.ok(Math.abs(m - p.precio / 2) <= 250, p.id);
   }
 });
 
