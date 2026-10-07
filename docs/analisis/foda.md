@@ -1,7 +1,7 @@
 # Análisis FODA y posición estratégica — Dany Pizzas
 
 > Versión 1.0 · 07/10/2026 · **Diagnóstico de la situación ANTES del proyecto** (pedidos solo por chat).
-> ⚠️ Los **pesos y calificaciones son una propuesta** del estudiante a partir del cuestionario. Deben ser **validados por el dueño** (y por un segundo evaluador, si la cátedra lo pide) antes de la exposición.
+> ✅ Factores, pesos y calificaciones propuestos por el estudiante y **aprobados por el negocio el 07/10/2026**.
 
 ## 1. Matriz FODA
 

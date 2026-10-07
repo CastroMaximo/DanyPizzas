@@ -1,6 +1,6 @@
 # Diagrama de causa-efecto (Ishikawa) — Dany Pizzas
 
-> Situación **antes** del proyecto. Causas propuestas a partir del cuestionario: **validar con el negocio**.
+> Situación **antes** del proyecto. Causas propuestas a partir del cuestionario y **aprobadas por el negocio el 07/10/2026**.
 > Editable: [`ishikawa.drawio`](ishikawa.drawio) · Imagen: [`ishikawa.png`](ishikawa.png)
 
 ![Ishikawa](ishikawa.png)
