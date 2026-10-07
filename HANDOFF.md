@@ -97,7 +97,9 @@ Pruebas: `node --test` (Node 18+; no hace falta instalar paquetes). Modo demo: `
 - [x] Pages activado y **sitio publicado el 06/10/2026: https://castromaximo.github.io/DanyPizzas/** (workflow en verde: pruebas + publicar)
 - [x] Apps Script desplegado, URL en `site/js/config.js`, planilla verificada por el usuario (06/10)
 - [ ] Pedido real de prueba (lo hace el usuario más adelante)
-- [ ] **Presentación rehecha según el esquema del profesor** (ver 6)
+- [x] Análisis (07/10) en `docs/analisis/`: RF-01…RF-20 y RNF-01…RNF-15 con trazabilidad; FODA + EFI 2,45 / EFE 2,32 → cuadrante V (conservar y mantener) + estrategias FO/FA/DO/DA; Ishikawa 6 categorías (PNG + drawio). Puntajes y causas = **propuesta a validar con el negocio**
+- [x] Dossier de transición (actividad aparte) entregado: `docs/entregas/` + deck de exposición en artifact
+- [ ] **Presentación rehecha según el esquema del profesor** (ver 6) — bloqueada por datos: ver `docs/analisis/PENDIENTES_DEL_USUARIO.md`
 - [x] Diagramas (06/10): casos de uso, clases, C4 contexto y contenedores, secuencia del pedido → `diagramas/` (draw.io editable + fuente Mermaid + PNG + SVG; GitHub los dibuja en `diagramas/README.md`)
 - [ ] Evidencias de que es real (capturas de la web publicada, pedido real llegando a WhatsApp, fila en la planilla)
 - [x] Publicar en GitHub Pages + QR (`docs/qr-sitio.png`)
