@@ -170,20 +170,35 @@ async function build() {
   // ===== 3. CV =====
   pres.addSection({ title: S2 });
   s = content("I. Curriculum vitae", "Máximo Daniel Castro", S2);
-  s.addShape(pres.shapes.OVAL, { x: 0.8, y: 1.8, w: 2.6, h: 2.6, fill: { color: CREAM }, line: { color: HEX.red, width: 1.5, dashType: "dash" }, objectName: "foto-cv" });
-  txt(s, "Foto\n(opcional)", { x: 0.8, y: 2.75, w: 2.6, h: 0.8, fontSize: 14, color: GRAY, align: "center" });
+  // Encabezado: carrera, universidad de origen e intercambio
   txt(s, [
-    { text: "Estudiante de Ingeniería de Sistemas", options: { bold: true, fontSize: 18, breakLine: true } },
-    { text: "Universidad Nacional de Moquegua · Escuela Profesional de Ingeniería de Sistemas e Informática", options: { color: GRAY } },
-  ], { x: 3.9, y: 1.8, w: 8.6, h: 0.9, fontSize: 15 });
-  card(s, 3.9, 2.85, 4.1, 2.35, TINT);
-  txt(s, "Proyecto destacado", { x: 4.15, y: 3.0, w: 3.6, h: 0.35, fontSize: 14, bold: true, color: RED });
-  txt(s, "Dany Pizzas Web (2026): sistema de pedidos publicado y en uso para un emprendimiento real.", { x: 4.15, y: 3.38, w: 3.6, h: 1.75, fontSize: 15 });
-  card(s, 8.3, 2.85, 4.2, 2.35, TINT);
-  txt(s, "Herramientas", { x: 8.55, y: 3.0, w: 3.8, h: 0.35, fontSize: 14, bold: true, color: RED });
-  txt(s, bul(["HTML, CSS y JavaScript", "Git, GitHub y GitHub Actions", "Google Apps Script y Sheets", "Linux Ubuntu y VS Code"]), { x: 8.55, y: 3.38, w: 3.8, h: 1.75, fontSize: 14, paraSpaceAfter: 4 });
-  pendiente(s, 0.8, 5.5, 11.7, 1.15, "Completar con tu CV: año que cursás, formación previa, experiencia laboral, cursos o certificaciones, idiomas y datos de contacto.");
-  notes(s, "0:30 (acumulado 1:10)", "Breve: carrera, año y experiencia. Mencionar que este es un proyecto real, no un ejercicio. [Completar con el CV]");
+    { text: "Estudiante de Ingeniería en Sistemas · 3.er año", options: { bold: true, fontSize: 20, breakLine: true } },
+    { text: "Universidad Nacional de Chilecito (UNdeC), Argentina  ·  De intercambio en la Universidad Nacional de Moquegua, Perú", options: { color: GRAY, fontSize: 15 } },
+  ], { x: 0.6, y: 1.6, w: 12.1, h: 0.95 });
+  // Fila de tarjetas
+  const cvY = 2.8, cvH = 2.95;
+  card(s, 0.6, cvY, 4.9, cvH, TINT);
+  await iconCircle(s, "FaTrophy", 0.85, cvY + 0.25, 0.55, RED);
+  txt(s, "Programación competitiva (ICPC)", { x: 1.55, y: cvY + 0.33, w: 3.8, h: 0.4, fontSize: 15, bold: true, color: RED });
+  txt(s, bul([
+    "Mención Honorable · Final Sudamérica Sur 2024 (Buenos Aires)",
+    "1.er puesto provincial · Torneo Argentino de Programación 2024 y 2025",
+    "Final Sudamérica Sur 2025 (Santa Fe), representando a la UNdeC",
+  ]), { x: 0.85, y: cvY + 1.0, w: 4.45, h: cvH - 1.15, fontSize: 14, paraSpaceAfter: 6 });
+  card(s, 5.7, cvY, 3.4, cvH, TINT);
+  await iconCircle(s, "FaPizzaSlice", 5.95, cvY + 0.25, 0.55, GREEN);
+  txt(s, "Proyecto destacado", { x: 6.65, y: cvY + 0.33, w: 2.35, h: 0.4, fontSize: 15, bold: true, color: GREEN_D });
+  txt(s, "Dany Pizzas Web (2026): sistema de pedidos publicado y en uso para un emprendimiento real de Chilecito.", { x: 5.95, y: cvY + 1.0, w: 2.95, h: cvH - 1.15, fontSize: 14 });
+  card(s, 9.3, cvY, 3.4, cvH, TINT);
+  await iconCircle(s, "FaTools", 9.55, cvY + 0.25, 0.55, GREEN);
+  txt(s, "Herramientas", { x: 10.25, y: cvY + 0.33, w: 2.35, h: 0.4, fontSize: 15, bold: true, color: GREEN_D });
+  txt(s, bul(["HTML, CSS y JavaScript", "Git, GitHub y Actions", "Apps Script y Sheets", "Linux Ubuntu y VS Code"]), { x: 9.55, y: cvY + 1.0, w: 3.0, h: cvH - 1.15, fontSize: 14, paraSpaceAfter: 4 });
+  // Pie: formación previa y contacto
+  await iconCircle(s, "FaGraduationCap", 0.6, 6.12, 0.42, GRAY);
+  txt(s, [{ text: "Formación previa: ", options: { bold: true } }, { text: "Técnico Agrónomo (2023)" }], { x: 1.15, y: 6.12, w: 5.2, h: 0.42, fontSize: 14, valign: "middle" });
+  await iconCircle(s, "FaEnvelope", 6.6, 6.12, 0.42, GRAY);
+  txt(s, "maximodanielcastro2004@gmail.com", { x: 7.15, y: 6.12, w: 5.5, h: 0.42, fontSize: 14, valign: "middle" });
+  notes(s, "0:30 (acumulado 1:10)", "Soy Máximo Castro, estudiante de tercer año de Ingeniería en Sistemas en la Universidad Nacional de Chilecito, en Argentina, y este semestre estoy de intercambio acá en Moquegua. Antes me recibí de técnico agrónomo. Lo que más me formó en programación es la competencia ICPC: mención honorable en la final sudamericana de 2024 y primer puesto provincial dos años seguidos. También fui asistente tecnológico en las jornadas de investigación del NOA. Y este proyecto no es un ejercicio: es un sistema real, publicado y en uso para un emprendimiento de mi ciudad.");
 
   // ===== 4. La empresa =====
   pres.addSection({ title: S3 });
