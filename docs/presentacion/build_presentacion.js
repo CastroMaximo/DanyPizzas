@@ -188,7 +188,7 @@ async function build() {
   card(s, 5.7, cvY, 3.4, cvH, TINT);
   await iconCircle(s, "FaPizzaSlice", 5.95, cvY + 0.25, 0.55, GREEN);
   txt(s, "Proyecto destacado", { x: 6.65, y: cvY + 0.33, w: 2.35, h: 0.4, fontSize: 15, bold: true, color: GREEN_D });
-  txt(s, "Dany Pizzas Web (2026): sistema de pedidos publicado y en uso para un emprendimiento real de Chilecito.", { x: 5.95, y: cvY + 1.0, w: 2.95, h: cvH - 1.15, fontSize: 14 });
+  txt(s, "Dany Pizzas Web (2026): sistema de pedidos publicado y funcionando para un emprendimiento real de Chilecito.", { x: 5.95, y: cvY + 1.0, w: 2.95, h: cvH - 1.15, fontSize: 14 });
   card(s, 9.3, cvY, 3.4, cvH, TINT);
   await iconCircle(s, "FaTools", 9.55, cvY + 0.25, 0.55, GREEN);
   txt(s, "Herramientas", { x: 10.25, y: cvY + 0.33, w: 2.35, h: 0.4, fontSize: 15, bold: true, color: GREEN_D });
@@ -198,7 +198,7 @@ async function build() {
   txt(s, [{ text: "Formación previa: ", options: { bold: true } }, { text: "Técnico Agrónomo (2023)" }], { x: 1.15, y: 6.12, w: 5.2, h: 0.42, fontSize: 14, valign: "middle" });
   await iconCircle(s, "FaEnvelope", 6.6, 6.12, 0.42, GRAY);
   txt(s, "maximodanielcastro2004@gmail.com", { x: 7.15, y: 6.12, w: 5.5, h: 0.42, fontSize: 14, valign: "middle" });
-  notes(s, "0:30 (acumulado 1:10)", "Soy Máximo Castro, estudiante de tercer año de Ingeniería en Sistemas en la Universidad Nacional de Chilecito, en Argentina, y este semestre estoy de intercambio acá en Moquegua. Antes me recibí de técnico agrónomo. Lo que más me formó en programación es la competencia ICPC: mención honorable en la final sudamericana de 2024 y primer puesto provincial dos años seguidos. También fui asistente tecnológico en las jornadas de investigación del NOA. Y este proyecto no es un ejercicio: es un sistema real, publicado y en uso para un emprendimiento de mi ciudad.");
+  notes(s, "0:30 (acumulado 1:10)", "Soy Máximo Castro, estudiante de tercer año de Ingeniería en Sistemas en la Universidad Nacional de Chilecito, en Argentina, y este semestre estoy de intercambio acá en Moquegua. Antes me recibí de técnico agrónomo. Lo que más me formó en programación es la competencia ICPC: mención honorable en la final sudamericana de 2024 y primer puesto provincial dos años seguidos. También fui asistente tecnológico en las jornadas de investigación del NOA. Y este proyecto no es un ejercicio: es un sistema real, publicado y funcionando para un emprendimiento de mi ciudad.");
 
   // ===== 4. La empresa =====
   pres.addSection({ title: S3 });
@@ -403,7 +403,7 @@ async function build() {
     ["Pruebas (44 automáticas)", "8", 7, 4, GREEN],
     ["Despliegue y CI", "6", 8, 2, GREEN],
     ["Validación y evaluación", "—", 9, 2, GREEN_D],
-    ["Pedido real y medición", "—", 10, 4, GREEN_D],
+    ["Pedido de prueba en producción", "—", 10, 4, GREEN_D],
     ["Presentación y ensayo", "—", 9, 5, INK],
   ];
   const nf = fases.length, top0 = gt + 0.7;
@@ -424,7 +424,7 @@ async function build() {
   txt(s, "Publicado 06/10 ▲", { x: gl + 9 * gw - 1.85, y: hitoY + 0.05, w: 1.8, h: 0.3, fontSize: 12, bold: true, align: "right" });
   txt(s, "Expo 13/10 ▲", { x: gl + 14.5 * gw - 1.45, y: hitoY + 0.05, w: 1.4, h: 0.3, fontSize: 12, bold: true, color: RED_D, align: "right" });
   txt(s, "Todas las tareas terminan el domingo 11/10.", { x: gx0, y: hitoY + 0.38, w: 7.9, h: 0.28, fontSize: 11, color: GRAY, italic: true });
-  notes(s, "0:40 (acumulado 6:40)", "El alcance es deliberadamente chico: lo mínimo que resuelve el problema. El pago en línea o una app quedan para una versión 2. El proyecto llevó dos semanas y 48 horas de trabajo. La primera semana fue de planificación: el Beat Chart con el enfoque y el método, el cuestionario al negocio, el diseño y un prototipo de la carta. La segunda fue de construcción, en incrementos cortos con un tablero Kanban y mostrando cada avance a la familia: el sitio se publicó el martes 6, el 7 validé el análisis con el negocio, y hasta el domingo 11 quedan el pedido real con la medición de uso y el ensayo. Todo termina antes de la exposición del 13.");
+  notes(s, "0:40 (acumulado 6:40)", "El alcance es deliberadamente chico: lo mínimo que resuelve el problema. El pago en línea o una app quedan para una versión 2. El proyecto llevó dos semanas y 48 horas de trabajo. La primera semana fue de planificación: el Beat Chart con el enfoque y el método, el cuestionario al negocio, el diseño y un prototipo de la carta. La segunda fue de construcción, en incrementos cortos con un tablero Kanban y mostrando cada avance a la familia: el sitio se publicó el martes 6, el 7 validé el análisis con el negocio, y hasta el domingo 11 quedan el pedido de prueba en producción y el ensayo. Todo termina antes de la exposición del 13.");
 
   // ===== 11. Presupuesto =====
   s = content("III. Trabajo principal · Presupuesto", "Presupuesto y financiamiento", S4);
@@ -584,7 +584,7 @@ async function build() {
     R("OE3", HEX.greenDark, "Costo y calidad", "—", "$0 por mes · 44 pruebas en verde"),
   ], { x: 0.6, y: 1.5, w: 12.1, colW: [0.9, 2.7, 4.0, 4.5], rowH: 0.43, fontSize: 14, fontFace: "Calibri", color: HEX.ink, border: { type: "solid", color: HEX.line, pt: 1 }, valign: "middle" });
   // Evidencia: pedido real DP-261010-001 (10/10/2026), de punta a punta
-  txt(s, [{ text: "Evidencia: pedido real DP‑261010‑001", options: { bold: true } }, { text: "  ·  10/10/2026, de punta a punta", options: { color: GRAY, fontSize: 14 } }],
+  txt(s, [{ text: "Evidencia: pedido de prueba en producción DP‑261010‑001", options: { bold: true } }, { text: "  ·  10/10/2026, de punta a punta", options: { color: GRAY, fontSize: 14 } }],
     { x: 0.6, y: 4.28, w: 12.1, h: 0.4, fontFace: "Cambria", fontSize: 17 });
   const evY = 4.75, evH = 2.08;
   const frame = (x, y, w, h) => s.addShape(pres.shapes.RECTANGLE, { x, y, w, h, fill: { type: "none" }, line: { color: HEX.line, width: 1 }, objectName: on("marco") });
@@ -605,7 +605,7 @@ async function build() {
     "Mismo número de pedido en el sitio, WhatsApp y planilla",
     "Registrado sin intervención del negocio",
   ]), { x: xPl, y: evY + 0.42 + hPl + 0.18, w: wPl, h: evH - 0.6 - hPl, fontSize: 13, paraSpaceAfter: 3 });
-  notes(s, "0:50 (acumulado 11:50)", "Los resultados, objetivo por objetivo, comparando antes y ahora. OE1: la carta dejó de ser una imagen reenviada y el pedido llega siempre completo. OE2: antes no había ningún registro, hoy hay una planilla mensual y los precios se cambian editando una celda. OE3: cuesta cero por mes y pasa 44 pruebas. Y acá está la evidencia de un pedido real, el DP-261010-001, de punta a punta: (1) el cliente confirma en el sitio y recibe su número; (2) el recibo llega armado al WhatsApp del negocio; (3) queda registrado solo en la planilla del mes, con el total recalculado por el servidor. El mismo número aparece en los tres lugares.\n\nSi preguntan: la hora del recibo (13:16) es la de Argentina, la del negocio; WhatsApp muestra la hora de mi celular en Perú. El aviso de 'fuera de horario' aparece porque lo hice de día: el sitio deja pedir igual y avisa al negocio. En la planilla muestro solo esta fila porque las demás tienen datos de clientes.");
+  notes(s, "0:50 (acumulado 11:50)", "Los resultados, objetivo por objetivo, comparando antes y ahora. OE1: la carta dejó de ser una imagen reenviada y el pedido llega siempre completo. OE2: antes no había ningún registro, hoy hay una planilla mensual y los precios se cambian editando una celda. OE3: cuesta cero por mes y pasa 44 pruebas. Y acá está la evidencia: un pedido de prueba hecho en el sistema publicado, el DP-261010-001, de punta a punta: (1) el cliente confirma en el sitio y recibe su número; (2) el recibo llega armado al WhatsApp del negocio; (3) queda registrado solo en la planilla del mes, con el total recalculado por el servidor. El mismo número aparece en los tres lugares.\n\nSi preguntan: la hora del recibo (13:16) es la de Argentina, la del negocio; WhatsApp muestra la hora de mi celular en Perú. El aviso de 'fuera de horario' aparece porque lo hice de día: el sitio deja pedir igual y avisa al negocio. En la planilla muestro solo esta fila. Si preguntan cuántos clientes lo usaron: se publicó el 06/10 y hasta ahora los pedidos fueron de prueba; medir la adopción real durante el primer mes es justamente la recomendación al negocio.");
 
   // ===== 18. Conclusiones (trazabilidad) =====
   s = content("III. Trabajo principal · Conclusiones", "Conclusiones: del problema al resultado", S4);

@@ -68,10 +68,12 @@ Reparto: introducción y memoria ≈ 3:20 · problema y objetivos ≈ 2:40 · de
 | ¿Cómo repartiste las 48 horas? | En dos semanas. La primera (28/09–04/10) fue de planificación: Beat Chart, cuestionario al negocio, diseño y un prototipo de la carta, unas 2 o 3 horas por día. La segunda fue de construcción: incrementos cortos, pruebas y publicación el 06/10. Análisis 8 h, diseño 8, desarrollo 18, pruebas 8 y despliegue 6. Ayudó que el alcance es chico y que usé servicios ya hechos y gratuitos (GitHub Pages, Google Sheets, Apps Script). | diap. 10 y 11 |
 | ¿Qué falta o qué harías en la v2? | Pago en línea, aviso de estado al cliente, panel de administración simple y promociones. Primero medir un mes de uso. | diap. 19 |
 | ¿Cómo sabés que los clientes lo van a usar? | No lo sé todavía: es el riesgo principal y por eso propongo medirlo el primer mes (pedidos web / total). Pero alcanza con recuperar un pedido cada 3 o 4 meses para que convenga. | diap. 13 |
+| ¿Cuántos clientes ya lo usaron? | Se publicó el 06/10 y hasta ahora los pedidos fueron de prueba, como el DP-261010-001 de la diapositiva 17: el circuito completo funciona en producción. La adopción real todavía no está medida; por eso la primera recomendación es medir durante un mes cuántos pedidos entran por la web. | diap. 17 y 19 |
 
 ## 4. Antes de exponer (día 13/10)
 
-- [ ] Completar los recuadros PENDIENTE (CV y capturas del pedido real).
+- [x] Completar los recuadros PENDIENTE (CV y capturas del pedido de prueba) — hecho el 10/10.
+- [ ] Marcar como “Descartado” en la planilla los pedidos de prueba (incluido DP-261010-001 y el de 880 porciones).
 - [ ] Probar el clicker o el control desde el celular con tu computadora.
 - [ ] Dejar abierto `DanyPizzas_Anexos.pptx` en segundo plano para las preguntas.
 - [ ] Abrir el PowerPoint en **vista Moderador** (ves las notas y el tiempo; el público solo la diapositiva).
