@@ -576,17 +576,36 @@ async function build() {
     { text: oe, options: { bold: true, color: WHITE, fill: { color: c }, align: "center" } },
     { text: ind, options: { bold: true } }, { text: antes, options: { color: HEX.gray } }, { text: ahora, options: { bold: true, color: HEX.greenDark } }];
   s.addTable([
-    [H(""), H("Indicador"), H("Antes"), H("Ahora (07/10/2026)")],
+    [H(""), H("Indicador"), H("Antes"), H("Ahora (10/10/2026)")],
     R("OE1", HEX.red, "Carta", "Imagen reenviada por chat", "Sitio publicado con fotos y precios"),
     R("OE1", HEX.red, "Datos del pedido", "Incompletos (1 de cada 10 con error)", "100 % completos: no se envía sin ellos"),
     R("OE2", HEX.green, "Registro de pedidos", "No existía", "Planilla mensual activa desde 06/10"),
     R("OE2", HEX.green, "Cambio de precios", "Reenviar la carta", "Editar una celda"),
     R("OE3", HEX.greenDark, "Costo y calidad", "—", "$0 por mes · 44 pruebas en verde"),
-  ], { x: 0.6, y: 1.6, w: 12.1, colW: [0.9, 2.7, 4.0, 4.5], rowH: 0.52, fontSize: 15, fontFace: "Calibri", color: HEX.ink, border: { type: "solid", color: HEX.line, pt: 1 }, valign: "middle" });
-  txt(s, "Evidencia del uso real", { x: 0.6, y: 4.95, w: 6, h: 0.4, fontFace: "Cambria", fontSize: 17, bold: true });
-  const ev = ["Captura: confirmación en el sitio", "Captura: mensaje en WhatsApp", "Captura: fila en la planilla", "Pedidos web hasta el 13/10"];
-  for (let i = 0; i < 4; i++) pendiente(s, 0.6 + i * 3.075, 5.4, 2.85, 1.35, ev[i], 12);
-  notes(s, "0:50 (acumulado 11:50)", "Los resultados, objetivo por objetivo, comparando antes y ahora. OE1: la carta dejó de ser una imagen reenviada y el pedido llega siempre completo. OE2: antes no había ningún registro, hoy hay una planilla mensual y los precios se cambian editando una celda. OE3: cuesta cero por mes y pasa 44 pruebas. Y acá tienen la evidencia de un pedido real: [mostrar capturas].");
+  ], { x: 0.6, y: 1.5, w: 12.1, colW: [0.9, 2.7, 4.0, 4.5], rowH: 0.43, fontSize: 14, fontFace: "Calibri", color: HEX.ink, border: { type: "solid", color: HEX.line, pt: 1 }, valign: "middle" });
+  // Evidencia: pedido real DP-261010-001 (10/10/2026), de punta a punta
+  txt(s, [{ text: "Evidencia: pedido real DP‑261010‑001", options: { bold: true } }, { text: "  ·  10/10/2026, de punta a punta", options: { color: GRAY, fontSize: 14 } }],
+    { x: 0.6, y: 4.28, w: 12.1, h: 0.4, fontFace: "Cambria", fontSize: 17 });
+  const evY = 4.75, evH = 2.08;
+  const frame = (x, y, w, h) => s.addShape(pres.shapes.RECTANGLE, { x, y, w, h, fill: { type: "none" }, line: { color: HEX.line, width: 1 }, objectName: on("marco") });
+  const wConf = evH * 528 / 621, wWa = evH * 1038 / 891;
+  s.addImage({ path: path.join(__dirname, "assets/evidencia_confirmacion.png"), x: 0.6, y: evY, w: wConf, h: evH, objectName: "evidencia-sitio" });
+  frame(0.6, evY, wConf, evH);
+  const xWa = 0.6 + wConf + 0.2;
+  s.addImage({ path: path.join(__dirname, "assets/evidencia_whatsapp.png"), x: xWa, y: evY, w: wWa, h: evH, objectName: "evidencia-whatsapp" });
+  frame(xWa, evY, wWa, evH);
+  const xPl = xWa + wWa + 0.25, wPl = 12.7 - xPl, hPl = wPl * 156 / 1912;
+  s.addImage({ path: path.join(__dirname, "assets/evidencia_planilla.png"), x: xPl, y: evY + 0.42, w: wPl, h: hPl, objectName: "evidencia-planilla" });
+  frame(xPl, evY + 0.42, wPl, hPl);
+  pill(s, "1 · Sitio", 0.68, evY + evH - 0.42, 1.1, RED);
+  pill(s, "2 · WhatsApp", xWa + 0.08, evY + evH - 0.42, 1.35, GREEN);
+  pill(s, "3 · Planilla", xPl, evY, 1.35, GREEN_D);
+  txt(s, bul([
+    "Total calculado solo: $32.500 (con mitad incluida)",
+    "Mismo número de pedido en el sitio, WhatsApp y planilla",
+    "Registrado sin intervención del negocio",
+  ]), { x: xPl, y: evY + 0.42 + hPl + 0.18, w: wPl, h: evH - 0.6 - hPl, fontSize: 13, paraSpaceAfter: 3 });
+  notes(s, "0:50 (acumulado 11:50)", "Los resultados, objetivo por objetivo, comparando antes y ahora. OE1: la carta dejó de ser una imagen reenviada y el pedido llega siempre completo. OE2: antes no había ningún registro, hoy hay una planilla mensual y los precios se cambian editando una celda. OE3: cuesta cero por mes y pasa 44 pruebas. Y acá está la evidencia de un pedido real, el DP-261010-001, de punta a punta: (1) el cliente confirma en el sitio y recibe su número; (2) el recibo llega armado al WhatsApp del negocio; (3) queda registrado solo en la planilla del mes, con el total recalculado por el servidor. El mismo número aparece en los tres lugares.\n\nSi preguntan: la hora del recibo (13:16) es la de Argentina, la del negocio; WhatsApp muestra la hora de mi celular en Perú. El aviso de 'fuera de horario' aparece porque lo hice de día: el sitio deja pedir igual y avisa al negocio. En la planilla muestro solo esta fila porque las demás tienen datos de clientes.");
 
   // ===== 18. Conclusiones (trazabilidad) =====
   s = content("III. Trabajo principal · Conclusiones", "Conclusiones: del problema al resultado", S4);
