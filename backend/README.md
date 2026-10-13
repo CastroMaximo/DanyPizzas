@@ -22,7 +22,7 @@ El sitio funciona igual si esto no está configurado (usa el catálogo local y u
 
 ## Cómo se usa día a día
 - **Cambiar un precio o sacar una pizza:** hoja `Catalogo` → editá `precio_entera` o poné `NO` en `disponible`. El sitio lo toma solo (la mitad se recalcula sola).
-- **Ver pedidos:** hoja del mes. La columna **Estado** tiene un menú (Nuevo, Pagado, En preparación, Entregado, Cancelado).
+- **Ver pedidos:** hoja del mes. La columna **Estado** tiene un menú (Nuevo, Pagado, En preparación, Entregado, Cancelado, Descartado).
 - **Cambié el código de `Code.gs`:** *Implementar → Administrar implementaciones → ✏ editar → Versión: Nueva versión → Implementar*. (Si creás una implementación nueva, la URL cambia y hay que pegarla otra vez en `config.js`.)
 
 ## Qué hace el servidor por seguridad

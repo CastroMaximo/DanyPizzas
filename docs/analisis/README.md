@@ -7,4 +7,3 @@
 | [ishikawa.md](ishikawa.md) | Diagrama causa-efecto (6 categorías, 18 causas) vinculado a los requisitos |
 | [memoria-descriptiva.md](memoria-descriptiva.md) | Datos del negocio, organización (3 personas + repartidor externo), misión, visión y valores (aprobados 07/10), infraestructura |
 | [evaluacion-economica.md](evaluacion-economica.md) | VAN, TIR, ROI, B/C y recupero: 3 escenarios + Monte Carlo (10.000 iteraciones) + sensibilidad; script en `economia/` |
-| [PENDIENTES_DEL_USUARIO.md](PENDIENTES_DEL_USUARIO.md) | Datos que faltan para terminar la presentación |

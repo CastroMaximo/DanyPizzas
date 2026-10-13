@@ -1,6 +1,6 @@
 # Evaluación económico-financiera — Dany Pizzas Web
 
-> Versión 1.0 · 07/10/2026 · Datos del negocio: respuestas del 07/10 (`PENDIENTES_DEL_USUARIO.md`, sección C).
+> Versión 1.0 · 07/10/2026 · Datos del negocio: respuestas del 07/10 (relevamiento con el dueño).
 > Cálculo reproducible: `economia/evaluacion_economica.py` (Python + NumPy, semilla fija 2026). Resultados completos en `economia/resultados.json`.
 > ⚠️ Los valores marcados como **supuesto** no los dio el negocio; se toman con un rango amplio y se miden en el primer mes de uso.
 

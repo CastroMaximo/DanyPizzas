@@ -4,29 +4,23 @@ Dirección pública del sitio (dominio gratuito de GitHub Pages):
 **https://castromaximo.github.io/DanyPizzas/**
 QR listo para imprimir: `docs/qr-sitio.png`
 
-Hay 3 partes. La 1 y la 2 dejan el sitio en internet (≈10 min). La 3 activa la planilla de pedidos (≈10 min, opcional pero recomendada para la exposición).
+Hay 3 partes. La 1 y la 2 dejan el sitio en internet (≈10 min). La 3 activa la planilla de pedidos (≈10 min).
+
+> **Estado al 13/10/2026:** las tres partes están hechas. El sitio está publicado desde el 06/10 y el backend está activo en la cuenta Google del negocio. Esta guía queda para reinstalar o para quien mantenga el sistema.
 
 ---
 
-## Parte 1 — Subir el código a GitHub
-
-El repositorio `CastroMaximo/DanyPizzas` ya existe y está vacío. El ZIP **ya trae el commit hecho**, solo falta empujarlo.
+## Parte 1 — Obtener el código
 
 ```bash
-cd ~/Descargas                       # o donde descargaste el ZIP
-unzip DanyPizzas_v1_2_repo.zip          # crea la carpeta DanyPizzas/ (con el historial de git)
+git clone https://github.com/CastroMaximo/DanyPizzas.git
 cd DanyPizzas
-git status                           # debe decir: "On branch main ... nothing to commit"
-git push -u origin main
+node --test                          # deben pasar las 44 pruebas
 ```
 
-Cuando pida credenciales:
-- **Usuario:** `CastroMaximo`
-- **Contraseña:** NO es tu contraseña de GitHub, es un **token**: GitHub → foto de perfil → *Settings* → *Developer settings* → *Personal access tokens* → *Tokens (classic)* → *Generate new token (classic)* → tildá **repo** y **workflow** → *Generate* → copialo y pegalo como contraseña.
+Para publicar cambios hace falta permiso de escritura en el repositorio. Si `git push` pide contraseña, no es la de GitHub sino un **token**: GitHub → foto de perfil → *Settings* → *Developer settings* → *Personal access tokens* → *Tokens (classic)* → *Generate new token (classic)* → tildá **repo** y **workflow** → *Generate* → copialo y pegalo como contraseña.
 
-> Alternativa sin terminal: en VS Code, *Archivo → Abrir carpeta* → `danypizzas` → panel *Control de código fuente* → **Publicar rama / Sync**. VS Code abre el navegador para iniciar sesión.
-
-> Si `git push` dice *rejected* porque el repo ya tiene algo (por ejemplo un README creado desde la web): `git pull --rebase origin main` y después `git push -u origin main`.
+> Alternativa sin terminal: en VS Code, *Archivo → Abrir carpeta* → `DanyPizzas` → panel *Control de código fuente* → **Sync**. VS Code abre el navegador para iniciar sesión.
 
 ## Parte 2 — Activar GitHub Pages (una sola vez)
 
@@ -59,15 +53,15 @@ Verificación: abrí el sitio, hacé un pedido de prueba → tiene que salir un 
 
 ---
 
-## Checklist de “producto terminado”
+## Checklist de “producto terminado” (verificado)
 
-- [ ] Sitio abre en https://castromaximo.github.io/DanyPizzas/ desde PC y celular
-- [ ] Pestaña Actions en verde
-- [ ] Backend desplegado y `backendUrl` cargada
-- [ ] Pedido de prueba: ID secuencial + fila en la planilla + mensaje llega al WhatsApp 3825 62-0508
-- [ ] Cambiar un precio en la hoja `Catalogo` y verlo reflejado en el sitio
-- [ ] QR (`docs/qr-sitio.png`) escaneado con un celular → abre el sitio
-- [ ] Capturas para la presentación (sitio publicado, pedido en WhatsApp, fila en la planilla)
+- [x] Sitio abre en https://castromaximo.github.io/DanyPizzas/ desde PC y celular
+- [x] Pestaña Actions en verde
+- [x] Backend desplegado y `backendUrl` cargada
+- [x] Pedido de prueba: ID secuencial + fila en la planilla + mensaje llega al WhatsApp 3825 62-0508
+- [x] Cambiar un precio en la hoja `Catalogo` y verlo reflejado en el sitio
+- [x] QR (`docs/qr-sitio.png`) escaneado con un celular → abre el sitio
+- [x] Capturas para la presentación (sitio publicado, pedido en WhatsApp, fila en la planilla)
 
 ## Problemas comunes
 

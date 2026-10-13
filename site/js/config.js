@@ -47,7 +47,7 @@
 
     // Pizzas: una sola medida. Entera = 8 porciones, mitad = 4.
     porciones: { E: 8, M: 4 },
-    // La mitad cuesta la mitad del precio, redondeada HACIA ARRIBA a este múltiplo (en pesos).
+    // La mitad cuesta la mitad del precio, redondeada al múltiplo más cercano (en pesos); si cae justo en el medio, hacia arriba.
     redondeoMitad: 500,
 
     // Prefijo del ID de pedido: DP-AAMMDD-001
