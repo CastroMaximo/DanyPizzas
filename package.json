@@ -1,8 +1,14 @@
 {
   "name": "dany-pizzas",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "description": "Pedidos por WhatsApp para Dany Pizzas",
-  "scripts": { "test": "node --test", "start": "python3 -m http.server 8000 -d site" },
-  "engines": { "node": ">=18" }
+  "scripts": {
+    "test": "node --test",
+    "test:cobertura": "node --test --experimental-test-coverage",
+    "start": "python3 -m http.server 8000 -d site"
+  },
+  "engines": {
+    "node": ">=18"
+  }
 }
