@@ -23,8 +23,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Pruebas unitarias
-        run: node --test
+      - name: Pruebas unitarias con cobertura
+        run: node --test --experimental-test-coverage
 
   publicar:
     needs: pruebas

@@ -38,6 +38,10 @@ WhatsApp sigue siendo el centro de la operación del negocio; el sitio ordena lo
 | Diagramas UML y C4 (casos de uso, clases, contexto, contenedores, secuencia) | [`diagramas/`](diagramas/README.md) |
 | Capturas del sitio (celular y PC) | [`docs/capturas/`](docs/capturas/) |
 | Guías técnicas: publicación y backend | [`docs/PUBLICAR.md`](docs/PUBLICAR.md) · [`backend/README.md`](backend/README.md) |
+| Documentación de la API del backend | [`docs/API.md`](docs/API.md) |
+| Seguridad y configuración (por qué no hay `.env`) | [`SECURITY.md`](SECURITY.md) |
+| Flujo de trabajo (ramas, commits) e historial de versiones | [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`CHANGELOG.md`](CHANGELOG.md) |
+| Guía para la auditoría cruzada (material, casos de prueba, limitaciones) | [`docs/GUIA_AUDITORIA.md`](docs/GUIA_AUDITORIA.md) |
 
 ## Arquitectura
 
@@ -66,7 +70,7 @@ Decisiones principales: **costo $0** (sin hardware ni servidores propios), **sin
 
 ## Calidad
 
-**44 pruebas automáticas** ([`tests/`](tests/)): 26 de la lógica del sitio (precios, mitades, horarios con cruce de medianoche, validación, número de pedido, recibo, enlace de WhatsApp, catálogo) y 18 del backend con Google simulado (que calcule exactamente lo mismo que el sitio, numeración, neutralización de fórmulas y protecciones contra pedidos falsos).
+**50 pruebas automáticas** ([`tests/`](tests/)): 26 de la lógica del sitio (precios, mitades, horarios con cruce de medianoche, validación, número de pedido, recibo, enlace de WhatsApp, catálogo) y 18 del backend con Google simulado (que calcule exactamente lo mismo que el sitio, numeración, neutralización de fórmulas y protecciones contra pedidos falsos) y 6 del formulario (límites de cada campo iguales a los del backend). Cobertura de líneas ≈ 99 % en la lógica (`npm run test:cobertura`).
 
 GitHub Actions las ejecuta en cada cambio: **si alguna falla, el sitio no se publica**. Las pruebas de aceptación con el negocio (UAT) están en la sección II del dossier.
 
@@ -78,7 +82,7 @@ Requisitos: Python 3 para servir el sitio y Node.js 18 o superior para las prueb
 git clone https://github.com/CastroMaximo/DanyPizzas.git
 cd DanyPizzas
 
-node --test                            # 44 pruebas
+node --test                            # 50 pruebas
 python3 -m http.server 8000 -d site    # abrir http://localhost:8000
 ```
 
